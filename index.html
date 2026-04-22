@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPO 셀프 컨설팅 — 비영리조직 성공 전략 AI 활용 4단계</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #1a2332;
+  background: #f7f6f2;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   CSS VARIABLES
+   ============================================================ */
+:root {
+  --teal:       #0d6e56;
+  --teal-dark:  #084b3c;
+  --teal-light: #e1f5ee;
+  --teal-mid:   #1fa880;
+  --navy:       #1a2332;
+  --navy-mid:   #2c3e55;
+  --gold:       #c8923a;
+  --gold-light: #fef3e2;
+  --sand:       #f7f6f2;
+  --white:      #ffffff;
+  --gray-100:   #f0eeea;
+  --gray-200:   #e2dfd8;
+  --gray-400:   #9c9890;
+  --gray-600:   #6b6760;
+  --step1:      #0d6e56;
+  --step2:      #5048b0;
+  --step3:      #b56a10;
+  --step4:      #b02848;
+  --step1-bg:   #e1f5ee;
+  --step2-bg:   #eeedfe;
+  --step3-bg:   #fef3e2;
+  --step4-bg:   #fdedf1;
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.07);
+  --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .no-print { display: none !important; }
+  .step-body { display: block !important; }
+  body { background: white; font-size: 12px; }
+  .hero { padding: 24px; background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  background: var(--navy);
+  color: white;
+  padding: 48px 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,0.015) 40px,
+    rgba(255,255,255,0.015) 41px
+  );
+}
+.hero-inner { position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.hero h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 12px;
+  color: white;
+}
+.hero h1 span { color: #5dcaa5; }
+.hero-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 28px;
+}
+.hero-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+}
+.hero-meta-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #5dcaa5;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   NAV TABS
+   ============================================================ */
+.nav-wrap {
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.nav-tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+.nav-tab {
+  padding: 14px 22px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: pointer;
+  border-bottom: 2.5px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+  user-select: none;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.nav-tab:hover { color: var(--teal); }
+.nav-tab.active {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section {
+  padding: 40px 0;
+  display: none;
+}
+.section.active { display: block; }
+
+.section-header {
+  margin-bottom: 28px;
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.section-desc {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   FLOW DIAGRAM
+   ============================================================ */
+.flow-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 36px;
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+}
+.flow-item {
+  flex: 1;
+  padding: 16px 14px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.flow-item:hover { background: var(--gray-100); }
+.flow-item + .flow-item::before {
+  content: '→';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  font-size: 16px;
+  background: white;
+  padding: 2px 0;
+}
+.flow-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 8px;
+}
+.f1 { background: var(--step1-bg); color: var(--step1); }
+.f2 { background: var(--step2-bg); color: var(--step2); }
+.f3 { background: var(--step3-bg); color: var(--step3); }
+.f4 { background: var(--step4-bg); color: var(--step4); }
+.flow-name { font-size: 12px; font-weight: 500; color: var(--navy); line-height: 1.4; }
+.flow-sub { font-size: 11px; color: var(--gray-400); margin-top: 3px; }
+
+/* ============================================================
+   STEP CARDS
+   ============================================================ */
+.step-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.step-card:hover { box-shadow: var(--shadow-sm); }
+.step-card.open { box-shadow: var(--shadow-md); }
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: background 0.15s;
+  user-select: none;
+}
+.step-header:hover { background: var(--gray-100); }
+.step-card.open .step-header { border-bottom-color: var(--gray-200); }
+
+.step-badge {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sb1 { background: var(--step1-bg); color: var(--step1); }
+.sb2 { background: var(--step2-bg); color: var(--step2); }
+.sb3 { background: var(--step3-bg); color: var(--step3); }
+.sb4 { background: var(--step4-bg); color: var(--step4); }
+
+.step-info { flex: 1; }
+.step-info h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.step-info p { font-size: 12px; color: var(--gray-600); }
+
+.step-toggle {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--gray-100);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  color: var(--gray-600);
+  transition: transform 0.25s, background 0.2s;
+  flex-shrink: 0;
+}
+.step-card.open .step-toggle { transform: rotate(180deg); background: var(--teal-light); color: var(--teal); }
+
+.step-body {
+  display: none;
+  padding: 22px 20px;
+}
+.step-card.open .step-body { display: block; }
+
+/* ============================================================
+   PROMPT BLOCKS
+   ============================================================ */
+.prompt-section {
+  margin-bottom: 20px;
+}
+.prompt-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.plabel-tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.ptag-general { background: var(--teal-light); color: var(--teal); }
+.ptag-custom { background: var(--gold-light); color: var(--gold); }
+
+.prompt-box {
+  background: #f8f7f4;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--navy);
+  position: relative;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+.prompt-box .var {
+  display: inline-block;
+  background: #fef3e2;
+  color: var(--gold);
+  border: 1px solid #f5dba8;
+  border-radius: 4px;
+  padding: 0 5px;
+  font-size: 11.5px;
+  font-weight: 700;
+  vertical-align: baseline;
+}
+.copy-btn {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 11px;
+  color: var(--gray-600);
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: all 0.2s;
+}
+.copy-btn:hover { background: var(--teal-light); color: var(--teal); border-color: var(--teal); }
+.copy-btn.done { background: var(--teal-light); color: var(--teal); border-color: var(--teal); }
+
+/* ============================================================
+   OUTPUT / DOMAIN GRIDS
+   ============================================================ */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+
+.output-chip {
+  background: var(--gray-100);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 12.5px;
+  color: var(--navy);
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  line-height: 1.5;
+}
+.output-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.domain-card {
+  background: var(--gray-100);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+.domain-title { font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+.domain-desc { font-size: 11.5px; color: var(--gray-600); line-height: 1.5; }
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.divider {
+  height: 1px;
+  background: var(--gray-200);
+  margin: 20px 0;
+}
+
+/* ============================================================
+   TIP BOX
+   ============================================================ */
+.tip-box {
+  background: var(--teal-light);
+  border: 1px solid #9fe1cb;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+.tip-box p { font-size: 13px; color: var(--teal-dark); line-height: 1.7; }
+.tip-box strong { color: var(--teal); }
+
+.warn-box {
+  background: var(--gold-light);
+  border: 1px solid #f5dba8;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+.warn-box p { font-size: 13px; color: #7a4f0a; line-height: 1.7; }
+
+/* ============================================================
+   GENERATOR — TAB 2
+   ============================================================ */
+.gen-wrap {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+}
+.gen-header {
+  padding: 20px 24px;
+  background: var(--navy);
+  color: white;
+}
+.gen-header h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.gen-header p { font-size: 13px; color: rgba(255,255,255,0.65); }
+
+.gen-body { padding: 24px; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.field-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+}
+.field-req {
+  font-size: 10px;
+  color: var(--step4);
+  font-weight: 500;
+  margin-left: 3px;
+}
+.field-opt {
+  font-size: 10px;
+  color: var(--gray-400);
+  margin-left: 3px;
+}
+.field-input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--navy);
+  background: var(--gray-100);
+  transition: border-color 0.2s, background 0.2s;
+}
+.field-input:focus {
+  outline: none;
+  border-color: var(--teal);
+  background: white;
+}
+.field-input::placeholder { color: var(--gray-400); }
+
+select.field-input { cursor: pointer; }
+
+.field-hint {
+  grid-column: 2;
+  font-size: 11px;
+  color: var(--gray-400);
+  margin-top: -8px;
+  margin-bottom: 4px;
+}
+
+.gen-step-select {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.step-sel-btn {
+  padding: 10px 8px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--gray-200);
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: all 0.2s;
+  background: white;
+}
+.step-sel-btn.sel-1.active { border-color: var(--step1); background: var(--step1-bg); color: var(--step1); }
+.step-sel-btn.sel-2.active { border-color: var(--step2); background: var(--step2-bg); color: var(--step2); }
+.step-sel-btn.sel-3.active { border-color: var(--step3); background: var(--step3-bg); color: var(--step3); }
+.step-sel-btn.sel-4.active { border-color: var(--step4); background: var(--step4-bg); color: var(--step4); }
+.step-sel-btn:not(.active) { color: var(--gray-600); }
+.step-sel-btn:hover:not(.active) { background: var(--gray-100); }
+
+.gen-btn-row { display: flex; gap: 10px; margin-bottom: 20px; }
+.btn-primary {
+  flex: 1;
+  padding: 12px;
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--teal-dark); }
+
+.btn-secondary {
+  padding: 12px 20px;
+  background: white;
+  color: var(--navy);
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.btn-secondary:hover { border-color: var(--navy); }
+
+.result-section { display: none; }
+.result-section.show { display: block; }
+
+.result-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--gray-200);
+  padding-bottom: 0;
+}
+.result-tab {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  transition: color 0.2s;
+}
+.result-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
+.result-tab:hover { color: var(--teal); }
+
+.result-prompt {
+  display: none;
+  background: #f8f7f4;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--navy);
+  white-space: pre-wrap;
+  word-break: keep-all;
+  min-height: 120px;
+}
+.result-prompt.active { display: block; }
+
+.result-copy-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+.copy-all-btn {
+  flex: 1;
+  padding: 9px;
+  background: var(--teal-light);
+  color: var(--teal);
+  border: 1px solid #9fe1cb;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.copy-all-btn:hover { background: #b0ddd0; }
+
+/* ============================================================
+   CHECKLIST TAB — ENHANCED v2
+   ============================================================ */
+
+/* intro card */
+.cl-intro-card {
+  background: var(--teal-light); border: 1px solid #9fe1cb;
+  border-radius: var(--radius-lg); padding: 16px 20px;
+  margin-bottom: 20px; display: flex; gap: 14px; align-items: flex-start;
+}
+.cl-intro-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+.cl-intro-text h4 { font-size: 13.5px; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+.cl-intro-text p  { font-size: 12.5px; color: var(--teal-dark); line-height: 1.65; opacity: .85; }
+
+/* sticky progress header */
+.cl-progress-header {
+  background: white; border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg); padding: 16px 20px;
+  margin-bottom: 20px; box-shadow: var(--shadow-sm);
+  position: sticky; top: 56px; z-index: 80;
+}
+.cl-prog-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.cl-prog-score { font-size: 20px; font-weight: 700; color: var(--teal); min-width: 56px; }
+.cl-prog-score span { font-size: 12px; color: var(--gray-400); font-weight: 400; }
+.progress-bar-wrap { flex: 1; height: 9px; background: var(--gray-200); border-radius: 5px; overflow: hidden; }
+.progress-bar { height: 100%; background: var(--teal); border-radius: 5px; transition: width 0.4s ease; }
+.cl-prog-pct { font-size: 13px; font-weight: 700; color: var(--teal); min-width: 38px; text-align: right; }
+.cl-cat-mini-row { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 12px; }
+.cl-cat-mini {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 11px; color: var(--gray-600);
+  background: var(--gray-100); border-radius: 12px; padding: 3px 9px;
+}
+.cl-cat-mini-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.cl-btn-row { display: flex; gap: 8px; }
+.cl-btn-diagnose {
+  flex: 1; padding: 10px; background: var(--teal); color: white;
+  border: none; border-radius: var(--radius-md);
+  font-size: 13.5px; font-weight: 700; font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer; transition: all 0.2s;
+  box-shadow: 0 3px 10px rgba(13,110,86,0.25);
+}
+.cl-btn-diagnose:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.reset-btn {
+  padding: 10px 16px; background: white; border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md); font-size: 12.5px;
+  color: var(--gray-600); cursor: pointer; font-family: 'Noto Sans KR', sans-serif;
+  transition: all 0.2s;
+}
+.reset-btn:hover { border-color: var(--step4); color: var(--step4); }
+
+/* category cards */
+.check-category {
+  background: white; border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200); margin-bottom: 10px;
+  overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow 0.2s;
+}
+.check-category.check-cat-open { box-shadow: var(--shadow-md); }
+.check-cat-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; cursor: pointer; user-select: none;
+  border-bottom: 1px solid transparent; transition: background 0.15s;
+}
+.check-cat-header:hover { background: var(--gray-100); }
+.check-cat-open .check-cat-header { border-bottom-color: var(--gray-200); }
+.check-cat-icon {
+  width: 34px; height: 34px; border-radius: 9px; font-size: 17px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.check-cat-title { flex: 1; font-size: 14px; font-weight: 700; color: var(--navy); }
+.check-cat-count {
+  font-size: 11.5px; font-weight: 600; padding: 3px 10px; border-radius: 12px;
+  margin-right: 4px; transition: all 0.2s;
+}
+.ccsb-none { background: var(--gray-100); color: var(--gray-400); }
+.ccsb-good { background: var(--teal-light); color: var(--teal); }
+.ccsb-mid  { background: #fffbea; color: #b7791f; }
+.ccsb-low  { background: #fff5f5; color: #c53030; }
+.check-cat-arrow { font-size: 11px; color: var(--gray-400); transition: transform 0.22s; }
+.check-cat-open .check-cat-arrow { transform: rotate(180deg); }
+
+.check-list-body { display: none; }
+.check-cat-open .check-list-body { display: block; }
+.check-cat-desc {
+  padding: 10px 18px; font-size: 12px; color: var(--gray-600);
+  background: var(--gray-100); border-bottom: 1px solid var(--gray-200); line-height: 1.6;
+}
+.check-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 11px 18px; border-bottom: 1px solid var(--gray-100);
+  cursor: pointer; transition: background 0.12s;
+}
+.check-item:last-child { border-bottom: none; }
+.check-item:hover { background: var(--gray-100); }
+.check-box {
+  width: 20px; height: 20px; border-radius: 5px;
+  border: 1.5px solid var(--gray-200); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px; transition: all 0.18s;
+}
+.check-box.checked { background: var(--teal); border-color: var(--teal); }
+.check-box.checked::after { content: '✓'; font-size: 12px; color: white; font-weight: 700; }
+.check-text { font-size: 13.5px; color: var(--navy); line-height: 1.6; }
+.check-text.checked { color: var(--gray-400); text-decoration: line-through; }
+.check-why { font-size: 11.5px; color: var(--gray-400); margin-top: 2px; line-height: 1.5; }
+
+/* ============================================================
+   CHECKLIST RESULT PANEL — ENHANCED v2
+   ============================================================ */
+.result-trigger-row { text-align: center; margin: 24px 0 0; }
+.show-result-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 32px; background: var(--teal); color: white;
+  border: none; border-radius: var(--radius-md);
+  font-size: 14px; font-weight: 700; font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer; transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 3px 12px rgba(13,110,86,0.25);
+}
+.show-result-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+.diag-result-panel { display: none; margin-top: 28px; animation: fadeIn 0.3s ease; }
+.diag-result-panel.show { display: block; }
+
+.res-sec-title {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--gray-400);
+  margin: 22px 0 10px; display: flex; align-items: center; gap: 7px;
+}
+
+/* Level Card */
+.level-card {
+  border-radius: var(--radius-lg); padding: 22px 24px;
+  margin-bottom: 14px; border: 1.5px solid; position: relative; overflow: hidden;
+}
+.level-card::before {
+  content: ''; position: absolute; right: -20px; top: -20px;
+  width: 130px; height: 130px; border-radius: 50%; opacity: 0.06;
+}
+.level-lv1 { background: #fff5f5; border-color: #ffc0c0; }
+.level-lv1::before { background: #e53e3e; }
+.level-lv2 { background: #fffbea; border-color: #fad56e; }
+.level-lv2::before { background: #d69e2e; }
+.level-lv3 { background: #f0fff4; border-color: #9ae6b4; }
+.level-lv3::before { background: #38a169; }
+.level-lv4 { background: #ebf8ff; border-color: #90cdf4; }
+.level-lv4::before { background: #3182ce; }
+
+.level-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+.level-badge {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;
+}
+.badge-lv1 { background: #fed7d7; } .badge-lv2 { background: #fefcbf; }
+.badge-lv3 { background: #c6f6d5; } .badge-lv4 { background: #bee3f8; }
+
+.level-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 2px 9px; border-radius: 10px; margin-bottom: 5px;
+}
+.tag-lv1 { background: #fed7d7; color: #c53030; }
+.tag-lv2 { background: #fefcbf; color: #b7791f; }
+.tag-lv3 { background: #c6f6d5; color: #276749; }
+.tag-lv4 { background: #bee3f8; color: #2b6cb0; }
+.level-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 4px; line-height: 1.35; }
+.level-score { font-size: 13px; color: var(--gray-600); }
+.level-score strong { font-size: 22px; font-weight: 700; color: var(--navy); }
+.level-desc { font-size: 13px; color: #2d3748; line-height: 1.8; }
+
+/* Bars card */
+.cat-bars-card {
+  background: white; border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg); padding: 18px 20px; margin-bottom: 14px;
+}
+.cat-bars-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.cat-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.cat-bar-row:last-child { margin-bottom: 0; }
+.cat-bar-label { font-size: 12px; color: var(--navy); width: 96px; flex-shrink: 0; }
+.cat-bar-wrap  { flex: 1; height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden; }
+.cat-bar-fill  { height: 100%; border-radius: 4px; transition: width 0.7s ease; }
+.cat-bar-fill.good { background: var(--teal); }
+.cat-bar-fill.mid  { background: var(--gold); }
+.cat-bar-fill.low  { background: #e53e3e; }
+.cat-bar-pct { font-size: 12px; font-weight: 600; min-width: 30px; text-align: right; }
+.cat-bar-pct.good { color: var(--teal); } .cat-bar-pct.mid { color: var(--gold); } .cat-bar-pct.low { color: #e53e3e; }
+.cat-bar-status { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 8px; min-width: 50px; text-align: center; }
+.status-good { background: var(--teal-light); color: var(--teal); }
+.status-mid  { background: #fffbea; color: #b7791f; }
+.status-low  { background: #fff5f5; color: #c53030; }
+
+/* Category interpretation cards */
+.cat-interp-card {
+  background: white; border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200); margin-bottom: 10px; overflow: hidden;
+}
+.cat-interp-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 13px 18px; border-bottom: 1px solid var(--gray-200);
+}
+.ci-icon { font-size: 18px; flex-shrink: 0; }
+.ci-name { flex: 1; font-size: 13.5px; font-weight: 700; color: var(--navy); }
+.ci-status-wrap { display: flex; align-items: center; gap: 6px; }
+.ci-pct { font-size: 13px; font-weight: 700; }
+.ci-status-tag { font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 10px; }
+.ci-body { padding: 14px 18px; }
+.ci-summary { font-size: 13px; color: var(--navy); line-height: 1.75; margin-bottom: 12px; }
+.ci-actions { display: flex; flex-direction: column; gap: 8px; }
+.ci-action {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--gray-100); border-radius: var(--radius-sm); padding: 10px 12px;
+}
+.ci-action-num {
+  width: 20px; height: 20px; border-radius: 5px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; margin-top: 1px;
+}
+.ci-action-text { font-size: 12.5px; color: var(--navy); line-height: 1.6; }
+.ci-action-text strong { display: block; margin-bottom: 2px; }
+.ci-action-ai { font-size: 11.5px; color: var(--teal); margin-top: 3px; font-weight: 500; }
+
+/* Timeline */
+.timeline-card {
+  background: white; border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200); padding: 20px; margin-bottom: 14px;
+}
+.tl-wrap { position: relative; padding-left: 26px; }
+.tl-wrap::before {
+  content: ''; position: absolute; left: 9px; top: 0; bottom: 0;
+  width: 2px; background: var(--gray-200); border-radius: 1px;
+}
+.tl-item { position: relative; margin-bottom: 20px; }
+.tl-item:last-child { margin-bottom: 0; }
+.tl-dot {
+  position: absolute; left: -21px; top: 3px;
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid white; box-shadow: 0 0 0 2px var(--gray-200); z-index: 1;
+}
+.tl-month { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 4px; }
+.tl-title { font-size: 13.5px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.tl-tasks { display: flex; flex-direction: column; gap: 4px; }
+.tl-task { font-size: 12.5px; color: var(--gray-600); line-height: 1.5; padding-left: 13px; position: relative; }
+.tl-task::before { content: '•'; position: absolute; left: 3px; color: var(--gray-400); }
+
+/* Prompt rec card */
+.prompt-rec-card {
+  background: linear-gradient(135deg, #0d6e56 0%, #1a2332 100%);
+  border-radius: var(--radius-lg); padding: 20px; margin-bottom: 14px; color: white;
+}
+.prompt-rec-title {
+  font-size: 14px; font-weight: 700; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.95);
+}
+.prompt-rec-sub { font-size: 12px; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+.prompt-rec-tabs { display: flex; gap: 4px; margin-bottom: 10px; flex-wrap: wrap; }
+.pr-tab {
+  padding: 5px 13px; border-radius: 20px; font-size: 12px; font-weight: 500;
+  cursor: pointer; font-family: 'Noto Sans KR', sans-serif; border: none; transition: all 0.18s;
+}
+.pr-tab.active  { background: rgba(255,255,255,0.25); color: white; }
+.pr-tab:not(.active) { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
+.pr-tab:hover:not(.active) { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); }
+.prompt-rec-box {
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-md); padding: 13px 15px;
+  font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.9);
+  white-space: pre-wrap; word-break: keep-all; min-height: 90px;
+  display: none;
+}
+.prompt-rec-box.active { display: block; }
+.prompt-rec-copy {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 10px; padding: 7px 16px;
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+  border-radius: var(--radius-sm); font-size: 12px; font-weight: 500;
+  color: white; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; transition: all 0.18s;
+}
+.prompt-rec-copy:hover { background: rgba(255,255,255,0.25); }
+
+/* Share row */
+.diag-share-row { display: flex; gap: 8px; margin-bottom: 14px; }
+.diag-share-btn {
+  flex: 1; padding: 9px; border-radius: var(--radius-sm); font-size: 12.5px;
+  font-weight: 600; font-family: 'Noto Sans KR', sans-serif; cursor: pointer;
+  border: 1.5px solid; transition: all 0.2s; text-align: center;
+}
+.dsb-print { background: white; color: var(--navy); border-color: var(--gray-200); }
+.dsb-print:hover { background: var(--gray-100); }
+.dsb-copy  { background: var(--teal-light); color: var(--teal); border-color: #9fe1cb; }
+.dsb-copy:hover { background: #9fe1cb; }
+
+/* ============================================================
+   GUIDE TAB
+   ============================================================ */
+.guide-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.guide-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.guide-icon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  background: var(--teal-light);
+}
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.guide-table th {
+  text-align: left;
+  padding: 8px 12px;
+  background: var(--gray-100);
+  color: var(--gray-600);
+  font-weight: 500;
+  font-size: 12px;
+  border-bottom: 1px solid var(--gray-200);
+}
+.guide-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--navy);
+  vertical-align: top;
+}
+.guide-table tr:last-child td { border-bottom: none; }
+.tag-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.tag-ai { background: var(--teal-light); color: var(--teal); }
+.tag-doc { background: var(--step2-bg); color: var(--step2); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.footer strong { color: rgba(255,255,255,0.85); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .hero h1 { font-size: 22px; }
+  .two-col { grid-template-columns: 1fr; }
+  .three-col { grid-template-columns: 1fr 1fr; }
+  .flow-row { flex-direction: column; }
+  .flow-item + .flow-item::before { content: '↓'; left: 50%; top: -12px; transform: translateX(-50%); }
+  .gen-step-select { grid-template-columns: 1fr 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+  .field-label { font-size: 12px; }
+  .field-hint { grid-column: 1; }
+  .guide-table { font-size: 12px; }
+}
+
+/* Animation */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.section.active { animation: fadeIn 0.25s ease; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero no-print">
+  <div class="container hero-inner">
+    <div class="hero-badge">NPO AI 활용 표준안 v1.0 · 2025</div>
+    <h1>비영리조직 <span>성공 전략</span><br>AI 활용 4단계 셀프 컨설팅</h1>
+    <p class="hero-sub">어느 비영리조직이나 스스로 진단하고 성장 전략을 수립할 수 있도록 설계된<br>AI 프롬프트 기반 셀프 컨설팅 도구입니다.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><div class="hero-meta-dot"></div>4단계 체계적 연구 프레임</div>
+      <div class="hero-meta-item"><div class="hero-meta-dot"></div>일반형 + 맞춤형 프롬프트</div>
+      <div class="hero-meta-item"><div class="hero-meta-dot"></div>즉시 복사 &amp; 사용 가능</div>
+      <div class="hero-meta-item"><div class="hero-meta-dot"></div>자가진단 체크리스트 포함</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav-wrap no-print">
+  <div class="container">
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showTab('guide-step')">📋 4단계 가이드</button>
+      <button class="nav-tab" onclick="showTab('generator')">⚡ 맞춤 프롬프트 생성기</button>
+      <button class="nav-tab" onclick="showTab('checklist')">✅ 자가진단 체크리스트</button>
+      <button class="nav-tab" onclick="showTab('reference')">📚 활용 참고표</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     SECTION 1 : 4단계 가이드
+     ============================================================ -->
+<section id="guide-step" class="section active">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">4-Step Framework</div>
+      <h2 class="section-title">비영리조직 성공 전략<br>AI 활용 4단계 표준안</h2>
+      <p class="section-desc">각 단계를 클릭하면 일반형 프롬프트와 특정 기관 맞춤형 프롬프트를 확인할 수 있습니다.<br>같은 대화 스레드에서 1단계부터 순서대로 진행하면 AI가 앞 단계 연구 내용을 누적 반영합니다.</p>
+    </div>
+
+    <!-- FLOW -->
+    <div class="flow-row">
+      <div class="flow-item" onclick="openStep(1)">
+        <div class="flow-num f1">1</div>
+        <div class="flow-name">성공 전략<br>심층 연구</div>
+        <div class="flow-sub">일반 프레임 수립</div>
+      </div>
+      <div class="flow-item" onclick="openStep(2)">
+        <div class="flow-num f2">2</div>
+        <div class="flow-name">성공 기관<br>벤치마킹</div>
+        <div class="flow-sub">상위 10개 분석</div>
+      </div>
+      <div class="flow-item" onclick="openStep(3)">
+        <div class="flow-num f3">3</div>
+        <div class="flow-name">운영 구조<br>진단</div>
+        <div class="flow-sub">번아웃+AI 대체</div>
+      </div>
+      <div class="flow-item" onclick="openStep(4)">
+        <div class="flow-num f4">4</div>
+        <div class="flow-name">맞춤 전략<br>+ AI 자동화</div>
+        <div class="flow-sub">최종 컨설팅</div>
+      </div>
+    </div>
+
+    <!-- ── STEP 1 ── -->
+    <div class="step-card" id="step-card-1">
+      <div class="step-header" onclick="toggleStep(1)">
+        <div class="step-badge sb1">1</div>
+        <div class="step-info">
+          <h3>조직 유형별 성공 전략 심층 연구</h3>
+          <p>비영리조직 공통 성공 프레임워크 수립 · 6개 핵심 영역 분석</p>
+        </div>
+        <div class="step-toggle">▼</div>
+      </div>
+      <div class="step-body">
+
+        <div class="tip-box">
+          <p><strong>이 단계의 목적:</strong> 한국 비영리 현장에 적용 가능한 성공 전략의 큰 그림을 그립니다. 특정 기관 정보 없이 일반 프레임워크를 먼저 확보하는 것이 핵심입니다.</p>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">일반형 프롬프트 <span class="plabel-tag ptag-general">바로 사용</span></div>
+          <div class="prompt-box" id="p1a">비영리조직의 성공 전략을 심층 연구해줘.
+사업성과, 재정, 홍보·마케팅, 인사·조직문화, 거버넌스, 디지털 전환 영역으로 나눠서,
+한국 비영리 현장에 적용 가능한 전략을 구체적인 사례와 함께 분석해줘.
+각 영역별로 핵심 성공요인(KSF) 3가지와 즉시 실천 가능한 방법을 제시해줘.<button class="copy-btn" onclick="copyPrompt(this,'p1a')">복사</button></div>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">특정 기관 맞춤형 프롬프트 <span class="plabel-tag ptag-custom">변수 교체 필요</span></div>
+          <div class="prompt-box" id="p1b"><span class="var">[기관명]</span>의 성공 전략을 심층 연구해줘.
+이 기관은 <span class="var">[사업 대상]</span>을 위한 <span class="var">[사업 분야]</span> 사업을 진행하는 <span class="var">[법인 유형]</span>이야.
+현재 고충은 <span class="var">[주요 고충 2~3가지]</span>야.
+
+사업성과, 재정(재원구조 포함), 홍보·마케팅, 인사·조직문화 영역별로
+현실적인 성공 전략을 분석하고, 유사 기관 성공 사례를 함께 제시해줘.
+각 영역별 핵심 성공요인(KSF) 3가지와 즉시 적용 가능한 실천 방안도 포함해줘.<button class="copy-btn" onclick="copyPrompt(this,'p1b')">복사</button></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="prompt-label">기대 산출물</div>
+        <div class="two-col">
+          <div class="output-chip"><div class="output-dot" style="background:#5dcaa5"></div>6개 영역별 성공 전략 프레임워크</div>
+          <div class="output-chip"><div class="output-dot" style="background:#5dcaa5"></div>한국 비영리 현장 적용 사례</div>
+          <div class="output-chip"><div class="output-dot" style="background:#5dcaa5"></div>영역별 핵심 성공요인(KSF) 목록</div>
+          <div class="output-chip"><div class="output-dot" style="background:#5dcaa5"></div>즉시 적용 가능한 실천 방안</div>
+        </div>
+
+        <div class="prompt-label" style="margin-bottom:8px">6대 연구 영역</div>
+        <div class="three-col">
+          <div class="domain-card"><div class="domain-title">사업성과 관리</div><div class="domain-desc">임팩트 측정, SROI, 성과 보고 체계</div></div>
+          <div class="domain-card"><div class="domain-title">재정 전략</div><div class="domain-desc">재원 다각화, 모금, 재정 관리 시스템</div></div>
+          <div class="domain-card"><div class="domain-title">홍보·마케팅</div><div class="domain-desc">스토리텔링, SNS, 브랜딩, 캠페인</div></div>
+          <div class="domain-card"><div class="domain-title">인사·조직문화</div><div class="domain-desc">번아웃 예방, 채용, 리더십</div></div>
+          <div class="domain-card"><div class="domain-title">거버넌스·이사회</div><div class="domain-desc">이사회 운영, 투명성, 책무성</div></div>
+          <div class="domain-card"><div class="domain-title">디지털 전환</div><div class="domain-desc">AI 활용, 행정 자동화, 데이터 경영</div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── STEP 2 ── -->
+    <div class="step-card" id="step-card-2">
+      <div class="step-header" onclick="toggleStep(2)">
+        <div class="step-badge sb2">2</div>
+        <div class="step-info">
+          <h3>성공 기관 벤치마킹 연구</h3>
+          <p>동일 대상·분야 성공 기관 상위 10개 선정 · 5대 항목 성공요인 분석</p>
+        </div>
+        <div class="step-toggle">▼</div>
+      </div>
+      <div class="step-body">
+
+        <div class="tip-box">
+          <p><strong>이 단계의 목적:</strong> 우리와 비슷한 일을 하는 기관 중 잘 하는 곳을 연구합니다. "성공의 패턴"을 읽고 우리에게 적용할 수 있는 포인트를 찾는 것이 핵심입니다.</p>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">일반형 프롬프트 <span class="plabel-tag ptag-general">바로 사용</span></div>
+          <div class="prompt-box" id="p2a">비영리 섹터에서 성공한 기관을 상위 10개 선정하고,
+이 기관들의 ① 인기 요인 ② 재원 구조 ③ 성장 원인 ④ 핵심 차별화 전략을 심층 연구해줘.
+한국 기관을 우선 선정하고, 참고할 만한 해외 사례도 2~3개 포함해줘.
+마지막으로 이 기관들의 공통 성공요인을 3가지로 요약해줘.<button class="copy-btn" onclick="copyPrompt(this,'p2a')">복사</button></div>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">특정 기관 맞춤형 프롬프트 <span class="plabel-tag ptag-custom">변수 교체 필요</span></div>
+          <div class="prompt-box" id="p2b"><span class="var">[사업 대상]</span>을 위한 <span class="var">[사업 분야]</span> 사업을 하는 비영리기관 중
+성공한 기관 상위 10개를 선정하고 다음 5가지 항목으로 분석해줘.
+
+① 인기 요인 (신뢰, 인지도, 당사자 중심성 등)
+② 재원 구조 (정부보조금 : 기부금 : 자체수익 비율 및 특징)
+③ 성장 원인 (결정적 변화 시점, 리더십, 사업 혁신)
+④ 핵심 차별화 전략 (타 기관과 다른 경쟁 우위)
+⑤ <span class="var">[기관명]</span>이 벤치마킹할 수 있는 포인트
+
+한국 기관을 우선 선정하고, 참고 해외 사례도 포함해줘.<button class="copy-btn" onclick="copyPrompt(this,'p2b')">복사</button></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="prompt-label">기대 산출물</div>
+        <div class="two-col">
+          <div class="output-chip"><div class="output-dot" style="background:#9f8fef"></div>상위 10개 기관 성공요인 비교표</div>
+          <div class="output-chip"><div class="output-dot" style="background:#9f8fef"></div>재원구조 패턴 분석</div>
+          <div class="output-chip"><div class="output-dot" style="background:#9f8fef"></div>인기 요인 공통점 도출</div>
+          <div class="output-chip"><div class="output-dot" style="background:#9f8fef"></div>우리 기관 적용 가능 포인트</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── STEP 3 ── -->
+    <div class="step-card" id="step-card-3">
+      <div class="step-header" onclick="toggleStep(3)">
+        <div class="step-badge sb3">3</div>
+        <div class="step-info">
+          <h3>현재 사업·운영 구조 심층 진단</h3>
+          <p>번아웃 유발 업무 파악 · AI 대체 가능 업무 탐색 · 자원 효율화 방안</p>
+        </div>
+        <div class="step-toggle">▼</div>
+      </div>
+      <div class="step-body">
+
+        <div class="tip-box">
+          <p><strong>이 단계의 목적:</strong> "무엇을 덜어낼 수 있는가"를 찾습니다. 번아웃을 일으키는 업무를 파악하고, AI로 대체하거나 자동화할 수 있는 업무를 구체적으로 선정합니다.</p>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">일반형 프롬프트 <span class="plabel-tag ptag-general">바로 사용</span></div>
+          <div class="prompt-box" id="p3a">비영리조직에서 구성원의 번아웃을 유발하는 업무가 무엇인지 구체적으로 확인하고,
+AI를 통해 대체 가능한 구체적인 업무를 찾아서 대체 방법을 심층 연구해줘.
+사회복지 비영리기관 현장 기준으로 분석해줘.
+
+다음 영역별로 정리해줘:
+① 행정·보고 업무 (보고서, 회의록, 공문 등)
+② 홍보·콘텐츠 업무 (SNS, 뉴스레터, 홍보물)
+③ 기획·제안 업무 (사업계획서, 공모사업)
+④ 이용자 관리 (상담 기록, 케이스 기록)
+⑤ 교육·연수 자료 제작
+
+각 업무별로 추천 AI 도구와 예상 시간 절감 효과도 함께 제시해줘.<button class="copy-btn" onclick="copyPrompt(this,'p3a')">복사</button></div>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">특정 기관 맞춤형 프롬프트 <span class="plabel-tag ptag-custom">변수 교체 필요</span></div>
+          <div class="prompt-box" id="p3b"><span class="var">[기관명]</span>의 주요 사업은 <span class="var">[사업 목록]</span>이야.
+구성원은 <span class="var">[직원 수]</span>명이고, 주요 업무 고충은 <span class="var">[고충 내용]</span>이야.
+
+① 번아웃을 유발하는 반복·비효율 업무를 파악하고
+② AI로 대체·자동화 가능한 업무를 우선순위로 선정하고
+③ 각 업무별 AI 적용 방법 (Claude, ChatGPT, 기타 도구)과
+   예상 시간 절감 효과를 구체적으로 제시해줘.
+
+특히 <span class="var">[가장 힘든 업무 1~2가지]</span> 업무를 중점적으로 분석해줘.<button class="copy-btn" onclick="copyPrompt(this,'p3b')">복사</button></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="prompt-label">기대 산출물</div>
+        <div class="two-col">
+          <div class="output-chip"><div class="output-dot" style="background:#efbf7a"></div>번아웃 유발 업무 목록 (우선순위)</div>
+          <div class="output-chip"><div class="output-dot" style="background:#efbf7a"></div>AI 대체 가능 업무 선정표</div>
+          <div class="output-chip"><div class="output-dot" style="background:#efbf7a"></div>업무별 AI 적용 방법 가이드</div>
+          <div class="output-chip"><div class="output-dot" style="background:#efbf7a"></div>예상 시간·자원 절감 효과</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── STEP 4 ── -->
+    <div class="step-card" id="step-card-4">
+      <div class="step-header" onclick="toggleStep(4)">
+        <div class="step-badge sb4">4</div>
+        <div class="step-info">
+          <h3>맞춤 성공 전략 + AI 자동화 설계</h3>
+          <p>1~3단계 연구 결과 + 우리 조직 자료 기반 최종 컨설팅 · 실행 로드맵</p>
+        </div>
+        <div class="step-toggle">▼</div>
+      </div>
+      <div class="step-body">
+
+        <div class="warn-box">
+          <p><strong>⚠ 이 단계는 1~3단계 연구가 완료된 후 진행하세요.</strong> 같은 대화 스레드에서 진행하면 앞 단계 내용이 자동 반영됩니다. 기관 자료를 첨부하면 훨씬 정밀한 결과를 얻을 수 있습니다.</p>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">일반형 프롬프트 <span class="plabel-tag ptag-general">바로 사용</span></div>
+          <div class="prompt-box" id="p4a">지금까지 심층 연구한 비영리조직 성공 전략 자료를 바탕으로,
+우리 조직의 성공을 위한 사업 구조와 재정 구조를 컨설팅해줘.
+그리고 AI 적용을 통해 자동화 가능한 업무를 선정하고 3개월 실행 로드맵을 만들어줘.
+
+결과물은 다음 형식으로 정리해줘:
+① 사업 구조 개선 컨설팅 (강점 유지 + 개선 포인트)
+② 재정 구조 다각화 전략 (단기/중장기 구분)
+③ AI 자동화 우선 업무 Top 5 (도구 + 적용 방법 포함)
+④ 3개월 실행 로드맵 (월별 To-do 형식)<button class="copy-btn" onclick="copyPrompt(this,'p4a')">복사</button></div>
+        </div>
+
+        <div class="prompt-section">
+          <div class="prompt-label">특정 기관 맞춤형 프롬프트 <span class="plabel-tag ptag-custom">변수 교체 + 자료 첨부</span></div>
+          <div class="prompt-box" id="p4b">지금까지 연구한 자료와 아래 우리 기관 정보를 바탕으로 맞춤 컨설팅을 해줘.
+
+[기관 기본 정보]
+- 기관명: <span class="var">[기관명]</span>
+- 설립연도: <span class="var">[설립연도]</span>
+- 주요 사업: <span class="var">[사업 목록]</span>
+- 연간 예산: <span class="var">[예산 규모]</span>
+- 재원 구조: <span class="var">[정부보조금% / 기부금% / 자체수익%]</span>
+- 직원 현황: <span class="var">[직원 수 및 구성]</span>
+- 현재 3대 고충: <span class="var">[고충 내용]</span>
+
+[컨설팅 요청 사항]
+① 사업 구조 컨설팅 — 강점 유지 + 개선 포인트
+② 재정 구조 개선 방안 — 단기(3개월) / 중장기(1~3년) 구분
+③ AI 자동화 적용 업무 선정 — 우선순위 Top 5 (도구+방법 포함)
+④ 3개월 실행 로드맵 — 월별 To-do 형식<button class="copy-btn" onclick="copyPrompt(this,'p4b')">복사</button></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="prompt-label">기대 산출물</div>
+        <div class="two-col">
+          <div class="output-chip"><div class="output-dot" style="background:#e47a9a"></div>사업 구조 개선 컨설팅 보고서</div>
+          <div class="output-chip"><div class="output-dot" style="background:#e47a9a"></div>재정 다각화 전략 로드맵</div>
+          <div class="output-chip"><div class="output-dot" style="background:#e47a9a"></div>AI 자동화 업무 우선순위표</div>
+          <div class="output-chip"><div class="output-dot" style="background:#e47a9a"></div>3개월 실행 계획표</div>
+        </div>
+
+        <div class="prompt-label" style="margin-bottom:8px">첨부 자료 준비 목록</div>
+        <div class="three-col">
+          <div class="domain-card" style="border-left:3px solid var(--step4)"><div class="domain-title">필수 자료</div><div class="domain-desc">최근 2년 사업계획서·결과보고서, 재정 현황표</div></div>
+          <div class="domain-card" style="border-left:3px solid var(--gold)"><div class="domain-title">권장 자료</div><div class="domain-desc">조직도, 직무 기술서, 구성원 업무 고충 설문</div></div>
+          <div class="domain-card" style="border-left:3px solid var(--gray-400)"><div class="domain-title">선택 자료</div><div class="domain-desc">NPO 자가진단 체크리스트 결과, 이사회 현황</div></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 : 맞춤 프롬프트 생성기
+     ============================================================ -->
+<section id="generator" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Custom Prompt Generator</div>
+      <h2 class="section-title">우리 기관 맞춤<br>프롬프트 생성기</h2>
+      <p class="section-desc">기관 정보를 입력하면 4단계 맞춤형 프롬프트를 자동으로 생성합니다.<br>생성된 프롬프트를 복사해서 Claude 또는 ChatGPT에 바로 붙여넣으세요.</p>
+    </div>
+
+    <div class="gen-wrap">
+      <div class="gen-header">
+        <h2>기관 정보 입력</h2>
+        <p>필수 항목(*)을 입력하면 맞춤 프롬프트가 생성됩니다.</p>
+      </div>
+      <div class="gen-body">
+
+        <div class="field-row">
+          <div class="field-label">기관명 <span class="field-req">*</span></div>
+          <input class="field-input" type="text" id="f-name" placeholder="예: 대전광역시 장애인재활협회">
+        </div>
+        <div class="field-row">
+          <div class="field-label">법인 유형 <span class="field-req">*</span></div>
+          <select class="field-input" id="f-type">
+            <option value="">선택하세요</option>
+            <option>사회복지법인</option>
+            <option>사단법인</option>
+            <option>재단법인</option>
+            <option>사회적협동조합</option>
+            <option>사회적기업</option>
+            <option>자활기업</option>
+            <option>비영리민간단체</option>
+            <option>기타 비영리조직</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="field-label">사업 대상 <span class="field-req">*</span></div>
+          <input class="field-input" type="text" id="f-target" placeholder="예: 장애인, 발달장애 청소년, 취약계층 노인">
+        </div>
+        <div class="field-row">
+          <div class="field-label">사업 분야 <span class="field-req">*</span></div>
+          <input class="field-input" type="text" id="f-field" placeholder="예: 장애인복지, 자립생활 지원, 직업재활">
+        </div>
+        <div class="field-row">
+          <div class="field-label">주요 사업 목록 <span class="field-opt">(선택)</span></div>
+          <input class="field-input" type="text" id="f-biz" placeholder="예: 활동지원서비스, 자립생활체험홈, 권익옹호사업">
+        </div>
+        <div class="field-row">
+          <div class="field-label">연간 예산 <span class="field-opt">(선택)</span></div>
+          <input class="field-input" type="text" id="f-budget" placeholder="예: 3억원, 약 5억원 규모">
+        </div>
+        <div class="field-row">
+          <div class="field-label">재원 구조 <span class="field-opt">(선택)</span></div>
+          <input class="field-input" type="text" id="f-finance" placeholder="예: 정부보조금 70%, 기부금 20%, 자체수익 10%">
+        </div>
+        <div class="field-row">
+          <div class="field-label">직원 수 <span class="field-opt">(선택)</span></div>
+          <input class="field-input" type="text" id="f-staff" placeholder="예: 정규직 8명, 계약직 4명">
+        </div>
+        <div class="field-row">
+          <div class="field-label">현재 고충 <span class="field-req">*</span></div>
+          <input class="field-input" type="text" id="f-issue" placeholder="예: 재정 의존도 높음, 구성원 번아웃, 홍보 부족">
+        </div>
+        <div class="field-row">
+          <div class="field-label">가장 힘든 업무 <span class="field-opt">(선택)</span></div>
+          <input class="field-input" type="text" id="f-hardwork" placeholder="예: 보조금 결과보고서 작성, 공모사업 제안서">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="prompt-label" style="margin-bottom:10px">생성할 단계 선택 (복수 선택 가능)</div>
+        <div class="gen-step-select">
+          <button class="step-sel-btn sel-1 active" data-step="1" onclick="toggleStepSel(this)">1단계<br><span style="font-size:10px;font-weight:400">성공 전략 연구</span></button>
+          <button class="step-sel-btn sel-2 active" data-step="2" onclick="toggleStepSel(this)">2단계<br><span style="font-size:10px;font-weight:400">벤치마킹 연구</span></button>
+          <button class="step-sel-btn sel-3 active" data-step="3" onclick="toggleStepSel(this)">3단계<br><span style="font-size:10px;font-weight:400">운영 구조 진단</span></button>
+          <button class="step-sel-btn sel-4 active" data-step="4" onclick="toggleStepSel(this)">4단계<br><span style="font-size:10px;font-weight:400">맞춤 전략 설계</span></button>
+        </div>
+
+        <div class="gen-btn-row">
+          <button class="btn-primary" onclick="generateAllPrompts()">맞춤 프롬프트 생성하기</button>
+          <button class="btn-secondary" onclick="resetGenerator()">초기화</button>
+        </div>
+
+        <div class="result-section" id="result-section">
+          <div class="prompt-label" style="margin-bottom:10px">생성된 맞춤 프롬프트</div>
+          <div class="result-tabs" id="result-tabs"></div>
+          <div id="result-prompts"></div>
+          <div class="result-copy-row">
+            <button class="copy-all-btn" id="copy-current-btn" onclick="copyCurrentPrompt()">현재 탭 프롬프트 복사</button>
+            <button class="btn-secondary" onclick="copyAllPrompts()">전체 복사</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 : 자가진단 체크리스트 (ENHANCED v2)
+     ============================================================ -->
+<section id="checklist" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Self-Diagnosis Checklist</div>
+      <h2 class="section-title">비영리조직 경영<br>자가진단 체크리스트</h2>
+      <p class="section-desc">30개 항목을 체크하면 6개 영역별 진단 결과와 즉시 실행 가능한 개선 로드맵을 제공합니다.<br>AI 컨설팅 시작 전 현재 상태를 정확히 파악하는 것이 핵심입니다.</p>
+    </div>
+
+    <!-- 안내 카드 -->
+    <div class="cl-intro-card">
+      <div class="cl-intro-icon">💡</div>
+      <div class="cl-intro-text">
+        <h4>이 진단도구 활용법</h4>
+        <p>6개 경영 영역 30개 항목을 체크하세요. 완료 후 <strong>"진단 결과 분석하기"</strong> 버튼을 누르면 ① 종합 등급 판정 ② 영역별 강점·약점 ③ 영역별 상세 해석 + 개선 과제 ④ 3개월 실행 로드맵 ⑤ AI 맞춤 프롬프트를 받을 수 있습니다.</p>
+      </div>
+    </div>
+
+    <!-- Sticky 진행 헤더 -->
+    <div class="cl-progress-header">
+      <div class="cl-prog-top">
+        <div class="cl-prog-score"><span id="cl-score-num">0</span> <span>/ 30</span></div>
+        <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar" style="width:0%"></div></div>
+        <div class="cl-prog-pct" id="cl-prog-pct">0%</div>
+      </div>
+      <div class="cl-cat-mini-row" id="cl-cat-mini-row"></div>
+      <div class="cl-btn-row">
+        <button class="cl-btn-diagnose" onclick="showDiagResult()">📊 진단 결과 분석하기</button>
+        <button class="reset-btn" onclick="resetChecklist()">초기화</button>
+      </div>
+    </div>
+
+    <!-- 미션·비전 -->
+    <div class="check-category" id="cat-0">
+      <div class="check-cat-header" onclick="toggleCat(0)">
+        <div class="check-cat-icon" style="background:#e1f5ee; color:#0d6e56">🧭</div>
+        <div class="check-cat-title">미션·비전·전략</div>
+        <div class="check-cat-count ccsb-none" id="cat-count-0">0/5</div>
+        <div class="check-cat-arrow">▼</div>
+      </div>
+      <div class="check-list-body" id="cat-body-0">
+        <div class="check-cat-desc">조직이 왜 존재하는지, 어디로 가는지를 구성원 모두가 공유하고 있는지 점검합니다.</div>
+        <div class="check-item" onclick="toggleCheck(this,0)"><div class="check-box"></div><div><div class="check-text">조직의 미션을 30초 안에 말할 수 있다.</div><div class="check-why">💬 신규 구성원이나 외부 이해관계자에게 즉시 설명 가능해야 합니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,0)"><div class="check-box"></div><div><div class="check-text">비전(5년 후 목표)이 문서로 수립되어 있고 구성원이 알고 있다.</div><div class="check-why">💬 모든 연간 사업계획의 방향타 역할을 합니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,0)"><div class="check-box"></div><div><div class="check-text">연간 사업계획이 미션·비전과 연계되어 수립된다.</div><div class="check-why">💬 미션과 무관한 사업 확장은 구성원 혼란을 유발합니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,0)"><div class="check-box"></div><div><div class="check-text">핵심가치(Core Value)가 정의되어 있고 구성원이 실제 업무에 적용한다.</div><div class="check-why">💬 채용, 의사결정, 갈등 해소의 기준이 됩니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,0)"><div class="check-box"></div><div><div class="check-text">중장기 전략계획(3~5년)이 수립되어 있다.</div><div class="check-why">💬 단기 성과 위주로만 운영되면 기관의 정체성이 흔들릴 수 있습니다.</div></div></div>
+      </div>
+    </div>
+
+    <!-- 재정 -->
+    <div class="check-category" id="cat-1">
+      <div class="check-cat-header" onclick="toggleCat(1)">
+        <div class="check-cat-icon" style="background:#fef3e2; color:#b56a10">💰</div>
+        <div class="check-cat-title">재정 전략</div>
+        <div class="check-cat-count ccsb-none" id="cat-count-1">0/6</div>
+        <div class="check-cat-arrow">▼</div>
+      </div>
+      <div class="check-list-body" id="cat-body-1">
+        <div class="check-cat-desc">지속가능한 운영을 위한 재원 다각화, 투명한 재정 관리, 비상 대비 자금 여부를 점검합니다.</div>
+        <div class="check-item" onclick="toggleCheck(this,1)"><div class="check-box"></div><div><div class="check-text">재원 구조가 3가지 이상의 수입원으로 다각화되어 있다.</div><div class="check-why">💬 정부보조금, 기부금, 자체수익 중 최소 3개 이상 확보해야 안정적입니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,1)"><div class="check-box"></div><div><div class="check-text">정부 보조금 의존도가 전체 수입의 70% 미만이다.</div><div class="check-why">💬 70% 이상이면 정책 변화에 기관 존폐가 흔들리는 고위험 상태입니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,1)"><div class="check-box"></div><div><div class="check-text">월별 수입·지출 현황을 구성원과 공유하고 있다.</div><div class="check-why">💬 재정 투명성은 구성원 신뢰와 자발적 참여의 기반입니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,1)"><div class="check-box"></div><div><div class="check-text">연간 모금(기부금) 목표와 전략이 수립되어 있다.</div><div class="check-why">💬 목표 없이 모금하면 성과를 측정할 수 없습니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,1)"><div class="check-box"></div><div><div class="check-text">3~6개월 운영이 가능한 비상 예비비가 확보되어 있다.</div><div class="check-why">💬 예상치 못한 지원 중단 시 기관을 보호하는 최소 안전망입니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,1)"><div class="check-box"></div><div><div class="check-text">기부자(후원자) 관리 시스템(DB)이 갖춰져 있다.</div><div class="check-why">💬 기부자 관계를 데이터로 관리하지 않으면 관계가 끊기기 쉽습니다.</div></div></div>
+      </div>
+    </div>
+
+    <!-- 홍보·마케팅 -->
+    <div class="check-category" id="cat-2">
+      <div class="check-cat-header" onclick="toggleCat(2)">
+        <div class="check-cat-icon" style="background:#eeedfe; color:#5048b0">📣</div>
+        <div class="check-cat-title">홍보·마케팅</div>
+        <div class="check-cat-count ccsb-none" id="cat-count-2">0/5</div>
+        <div class="check-cat-arrow">▼</div>
+      </div>
+      <div class="check-list-body" id="cat-body-2">
+        <div class="check-cat-desc">우리 기관이 어떤 가치를 만드는지 외부에 얼마나 잘 알리고 있는지 점검합니다.</div>
+        <div class="check-item" onclick="toggleCheck(this,2)"><div class="check-box"></div><div><div class="check-text">운영 중인 SNS 채널이 1개 이상 있고 월 4회 이상 콘텐츠를 게시한다.</div><div class="check-why">💬 월 4회 미만이면 알고리즘에서 사라지고 신뢰도가 급격히 낮아집니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,2)"><div class="check-box"></div><div><div class="check-text">기관의 임팩트 스토리(당사자 변화 사례)를 정기적으로 콘텐츠화하고 있다.</div><div class="check-why">💬 숫자보다 한 사람의 변화 이야기가 후원자 마음을 움직입니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,2)"><div class="check-box"></div><div><div class="check-text">연간 홍보 계획이 수립되어 있다.</div><div class="check-why">💬 계획 없이 올리는 콘텐츠는 방향성 없는 소음이 됩니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,2)"><div class="check-box"></div><div><div class="check-text">기관 홈페이지가 있고 주기적으로 업데이트된다.</div><div class="check-why">💬 오래된 홈페이지는 폐업한 기관처럼 보일 수 있습니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,2)"><div class="check-box"></div><div><div class="check-text">후원자(기부자)에게 연간 1회 이상 활동 성과 보고서를 제공한다.</div><div class="check-why">💬 후원자에게 결과를 보고하지 않으면 재후원 확률이 크게 낮아집니다.</div></div></div>
+      </div>
+    </div>
+
+    <!-- 인사·조직 -->
+    <div class="check-category" id="cat-3">
+      <div class="check-cat-header" onclick="toggleCat(3)">
+        <div class="check-cat-icon" style="background:#fdedf1; color:#b02848">👥</div>
+        <div class="check-cat-title">인사·조직문화</div>
+        <div class="check-cat-count ccsb-none" id="cat-count-3">0/6</div>
+        <div class="check-cat-arrow">▼</div>
+      </div>
+      <div class="check-list-body" id="cat-body-3">
+        <div class="check-cat-desc">구성원이 지속적으로 일하고 싶은 환경인지 점검합니다. 잦은 이직과 번아웃은 서비스 품질 저하와 직결됩니다.</div>
+        <div class="check-item" onclick="toggleCheck(this,3)"><div class="check-box"></div><div><div class="check-text">구성원 1인당 주요 직무 기술서(JD)가 문서로 존재한다.</div><div class="check-why">💬 JD가 없으면 누가 무엇을 해야 하는지 혼선이 생기고 과중 업무가 방치됩니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,3)"><div class="check-box"></div><div><div class="check-text">연간 구성원 역량 교육 계획이 수립되고 실행된다.</div><div class="check-why">💬 교육 없이 성장을 요구하면 구성원이 소진됩니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,3)"><div class="check-box"></div><div><div class="check-text">번아웃 예방을 위한 슈퍼비전 또는 정기 면담이 이루어지고 있다.</div><div class="check-why">💬 사회복지 현장은 감정노동 강도가 높아 슈퍼비전이 필수입니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,3)"><div class="check-box"></div><div><div class="check-text">구성원이 익명으로 의견을 제시할 수 있는 피드백 채널이 있다.</div><div class="check-why">💬 익명 채널 없이는 리더가 조직의 진짜 문제를 알 수 없습니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,3)"><div class="check-box"></div><div><div class="check-text">구성원의 평균 근속 기간이 3년 이상이다.</div><div class="check-why">💬 잦은 이직은 서비스 단절과 채용 비용 낭비를 초래합니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,3)"><div class="check-box"></div><div><div class="check-text">신규 구성원을 위한 온보딩 프로그램이 있다.</div><div class="check-why">💬 온보딩 없이 입사한 직원의 조기 퇴직률은 그렇지 않은 경우의 2배입니다.</div></div></div>
+      </div>
+    </div>
+
+    <!-- 디지털·AI -->
+    <div class="check-category" id="cat-4">
+      <div class="check-cat-header" onclick="toggleCat(4)">
+        <div class="check-cat-icon" style="background:#e1f5ee; color:#0d6e56">🤖</div>
+        <div class="check-cat-title">디지털 전환·AI 활용</div>
+        <div class="check-cat-count ccsb-none" id="cat-count-4">0/4</div>
+        <div class="check-cat-arrow">▼</div>
+      </div>
+      <div class="check-list-body" id="cat-body-4">
+        <div class="check-cat-desc">디지털 도구와 AI를 얼마나 업무에 활용하고 있는지 점검합니다. 디지털 전환은 선택이 아닌 생존 전략입니다.</div>
+        <div class="check-item" onclick="toggleCheck(this,4)"><div class="check-box"></div><div><div class="check-text">AI 도구(Claude, ChatGPT 등)를 업무에 활용하고 있다.</div><div class="check-why">💬 보고서 초안, SNS 콘텐츠, 공모사업 제안서 작성에 즉시 적용 가능합니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,4)"><div class="check-box"></div><div><div class="check-text">이용자·기부자 정보가 체계적인 데이터베이스로 관리된다.</div><div class="check-why">💬 엑셀 명단 수준이라도 정기 업데이트·백업이 이루어지면 해당합니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,4)"><div class="check-box"></div><div><div class="check-text">반복적인 행정 업무 중 디지털로 자동화된 것이 1가지 이상 있다.</div><div class="check-why">💬 구글 폼 수집, 이메일 자동 발신 등 작은 것도 포함됩니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,4)"><div class="check-box"></div><div><div class="check-text">구성원을 위한 디지털 역량 교육을 실시한 적이 있다.</div><div class="check-why">💬 도구가 있어도 사용법을 모르면 활용되지 않습니다.</div></div></div>
+      </div>
+    </div>
+
+    <!-- 거버넌스 -->
+    <div class="check-category" id="cat-5">
+      <div class="check-cat-header" onclick="toggleCat(5)">
+        <div class="check-cat-icon" style="background:#fef3e2; color:#b56a10">🏛️</div>
+        <div class="check-cat-title">거버넌스·이사회</div>
+        <div class="check-cat-count ccsb-none" id="cat-count-5">0/4</div>
+        <div class="check-cat-arrow">▼</div>
+      </div>
+      <div class="check-list-body" id="cat-body-5">
+        <div class="check-cat-desc">조직의 의사결정 구조와 책무성이 제대로 작동하는지 점검합니다. 투명한 거버넌스는 후원자 신뢰의 핵심입니다.</div>
+        <div class="check-item" onclick="toggleCheck(this,5)"><div class="check-box"></div><div><div class="check-text">이사회가 연 4회 이상 정기적으로 개최된다.</div><div class="check-why">💬 서류상 이사회가 아니라 실질적인 의사결정이 이루어지는 이사회여야 합니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,5)"><div class="check-box"></div><div><div class="check-text">이사 중 법률·회계·마케팅 등 전문 역량을 가진 이사가 포함되어 있다.</div><div class="check-why">💬 전문 이사는 기관에 무보수 전문 자문을 제공하는 귀중한 자원입니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,5)"><div class="check-box"></div><div><div class="check-text">연간 재정 감사 또는 외부 회계 검토가 이루어진다.</div><div class="check-why">💬 외부 감사는 공신력 강화와 내부 오류 예방의 필수 장치입니다.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this,5)"><div class="check-box"></div><div><div class="check-text">조직 활동과 재정 현황이 홈페이지 또는 공개 보고서를 통해 투명하게 공개된다.</div><div class="check-why">💬 투명성은 비영리기관의 가장 강력한 마케팅 도구입니다.</div></div></div>
+      </div>
+    </div>
+
+    <!-- ── 진단 결과 패널 ── -->
+    <div class="diag-result-panel" id="diag-result-panel">
+
+      <div class="res-sec-title">📊 종합 진단 결과</div>
+      <div id="diag-level-card"></div>
+
+      <div class="res-sec-title">📈 6개 영역별 달성도</div>
+      <div class="cat-bars-card" id="diag-cat-bars-wrap">
+        <div id="diag-cat-bars"></div>
+      </div>
+
+      <div class="res-sec-title">🔍 영역별 상세 해석 및 개선 방향</div>
+      <div id="diag-cat-interp"></div>
+
+      <div class="res-sec-title">🗓️ 우선순위 기반 3개월 실행 로드맵</div>
+      <div class="timeline-card">
+        <div class="tl-wrap" id="diag-timeline"></div>
+      </div>
+
+      <div class="res-sec-title">🤖 진단 결과 기반 AI 컨설팅 프롬프트</div>
+      <div class="prompt-rec-card">
+        <div class="prompt-rec-title">💡 이 프롬프트를 Claude 또는 ChatGPT에 붙여넣으세요</div>
+        <div class="prompt-rec-sub">단계별로 선택해 사용하거나 전체를 순서대로 사용하세요.</div>
+        <div class="prompt-rec-tabs" id="diag-prompt-tabs"></div>
+        <div id="diag-prompt-texts"></div>
+        <button class="prompt-rec-copy" onclick="copyDiagPrompt()">📋 현재 프롬프트 복사하기</button>
+      </div>
+
+      <div class="diag-share-row">
+        <button class="diag-share-btn dsb-print" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
+        <button class="diag-share-btn dsb-copy"  onclick="copyDiagSummary()">📋 결과 요약 복사</button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 : 참고표
+     ============================================================ -->
+<section id="reference" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Reference Guide</div>
+      <h2 class="section-title">AI 컨설팅 활용<br>참고 가이드</h2>
+      <p class="section-desc">효과적인 AI 컨설팅을 위한 팁, 추천 도구, 단계별 활용 안내입니다.</p>
+    </div>
+
+    <div class="guide-card">
+      <h3><div class="guide-icon">💡</div> 4단계 활용 핵심 원칙</h3>
+      <table class="guide-table">
+        <tr><th>원칙</th><th>내용</th></tr>
+        <tr><td><strong>같은 스레드 유지</strong></td><td>1~4단계를 동일한 대화창에서 진행하면 AI가 앞 단계 연구 내용을 누적 반영합니다.</td></tr>
+        <tr><td><strong>순서 준수</strong></td><td>1단계 → 2단계 → 3단계 → 4단계 순서를 지켜야 연구 내용이 쌓입니다. 4단계만 단독 사용은 효과가 낮습니다.</td></tr>
+        <tr><td><strong>자료 첨부</strong></td><td>4단계에서 사업계획서, 재정 현황표, 조직도를 첨부하면 훨씬 정밀한 맞춤 컨설팅이 나옵니다.</td></tr>
+        <tr><td><strong>추가 질문 활용</strong></td><td>각 단계 결과에 "더 자세히", "사례 추가", "실행 방법"을 요청하면 깊이 있는 내용을 얻을 수 있습니다.</td></tr>
+      </table>
+    </div>
+
+    <div class="guide-card">
+      <h3><div class="guide-icon">🛠️</div> 단계별 추천 AI 도구</h3>
+      <table class="guide-table">
+        <tr><th>단계</th><th>추천 도구</th><th>활용 방식</th></tr>
+        <tr>
+          <td>1~2단계 연구</td>
+          <td><span class="tag-pill tag-ai">Claude</span> <span class="tag-pill tag-ai">ChatGPT</span></td>
+          <td>웹 검색 기능 활성화 후 최신 사례 포함 요청</td>
+        </tr>
+        <tr>
+          <td>3단계 업무 진단</td>
+          <td><span class="tag-pill tag-ai">Claude</span></td>
+          <td>실제 업무 목록을 텍스트로 입력하거나 업무 기술서 첨부</td>
+        </tr>
+        <tr>
+          <td>4단계 전략 수립</td>
+          <td><span class="tag-pill tag-ai">Claude</span></td>
+          <td>사업계획서, 재정 현황 파일(PDF/엑셀) 첨부 후 요청</td>
+        </tr>
+        <tr>
+          <td>보고서 작성</td>
+          <td><span class="tag-pill tag-doc">Claude + 워드</span></td>
+          <td>AI 결과를 바탕으로 공식 문서 형식으로 변환</td>
+        </tr>
+        <tr>
+          <td>홍보 콘텐츠</td>
+          <td><span class="tag-pill tag-ai">Claude</span> <span class="tag-pill tag-ai">Canva AI</span></td>
+          <td>스크립트 작성 → 디자인 도구로 시각화</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="guide-card">
+      <h3><div class="guide-icon">📌</div> 변수([ ]) 입력 가이드</h3>
+      <table class="guide-table">
+        <tr><th>변수명</th><th>입력 예시</th><th>팁</th></tr>
+        <tr><td>[기관명]</td><td>대전광역시 장애인재활협회</td><td>공식 명칭 사용</td></tr>
+        <tr><td>[사업 대상]</td><td>지체·뇌병변 장애인, 발달장애 청소년</td><td>구체적일수록 정밀한 결과</td></tr>
+        <tr><td>[사업 분야]</td><td>자립생활 지원, 직업재활, 권익옹호</td><td>핵심 사업 3개 이내</td></tr>
+        <tr><td>[법인 유형]</td><td>사단법인, 사회복지법인</td><td>법적 형태 정확히 기재</td></tr>
+        <tr><td>[주요 고충]</td><td>정부보조금 의존도 80% 이상, 직원 이직률 높음</td><td>솔직하게 작성할수록 유용</td></tr>
+        <tr><td>[재원 구조]</td><td>정부보조금 75% / 기부금 15% / 자체수익 10%</td><td>대략적 비율도 OK</td></tr>
+      </table>
+    </div>
+
+    <div class="guide-card">
+      <h3><div class="guide-icon">⚡</div> AI 대체 가능 업무 Top 10</h3>
+      <table class="guide-table">
+        <tr><th>업무 유형</th><th>AI 활용 방법</th><th>예상 절감</th></tr>
+        <tr><td>보조금 결과보고서</td><td>실적 데이터 입력 → 초안 작성 요청</td><td>50~70%</td></tr>
+        <tr><td>SNS 콘텐츠 제작</td><td>활동 내용 요약 → 게시물 초안 생성</td><td>60~80%</td></tr>
+        <tr><td>공모사업 제안서</td><td>기관 정보 + 사업 개요 입력 → 초안</td><td>40~60%</td></tr>
+        <tr><td>회의록 정리</td><td>녹음 파일 → 텍스트 변환 → 요약</td><td>80~90%</td></tr>
+        <tr><td>뉴스레터 작성</td><td>월간 활동 내용 입력 → 기사 초안</td><td>50~70%</td></tr>
+        <tr><td>교육 자료 제작</td><td>주제와 대상 입력 → 슬라이드 내용</td><td>40~60%</td></tr>
+        <tr><td>상담 기록 요약</td><td>대화 내용 → 구조화된 기록 초안</td><td>50~60%</td></tr>
+        <tr><td>번역·외국어 문서</td><td>국제 행사·보고 시 즉시 활용</td><td>90%+</td></tr>
+        <tr><td>이메일·공문 초안</td><td>요지 입력 → 격식체 공문 자동 생성</td><td>70~80%</td></tr>
+        <tr><td>사업계획서 초안</td><td>전년 실적 + 목표 입력 → 구조화</td><td>40~55%</td></tr>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <p><strong>NPO 셀프 컨설팅 · AI 활용 4단계 표준안</strong></p>
+  <p>비영리조직 경영 컨설팅 전용 | 본 도구는 자유롭게 활용 및 공유하실 수 있습니다.</p>
+  <p style="margin-top:6px; font-size:11px">※ 생성된 프롬프트는 Claude(claude.ai) 또는 ChatGPT(chat.openai.com)에 붙여넣어 사용하세요.</p>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// ── TAB NAVIGATION ──────────────────────────────────
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ── STEP TOGGLE ─────────────────────────────────────
+function toggleStep(num) {
+  var card = document.getElementById('step-card-' + num);
+  card.classList.toggle('open');
+}
+function openStep(num) {
+  var card = document.getElementById('step-card-' + num);
+  if (!card.classList.contains('open')) card.classList.add('open');
+  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── COPY PROMPT ─────────────────────────────────────
+function copyPrompt(btn, id) {
+  var el = document.getElementById(id);
+  var text = el.innerText.replace('복사', '').replace('복사됨', '').trim();
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = '복사됨';
+    btn.classList.add('done');
+    setTimeout(function() { btn.textContent = '복사'; btn.classList.remove('done'); }, 2000);
+  });
+}
+
+// ── GENERATOR ───────────────────────────────────────
+var selectedSteps = [1, 2, 3, 4];
+
+function toggleStepSel(btn) {
+  var step = parseInt(btn.getAttribute('data-step'));
+  btn.classList.toggle('active');
+  if (selectedSteps.includes(step)) {
+    selectedSteps = selectedSteps.filter(function(s) { return s !== step; });
+  } else {
+    selectedSteps.push(step);
+    selectedSteps.sort();
+  }
+}
+
+function getVal(id) { return document.getElementById(id).value.trim(); }
+
+function generateAllPrompts() {
+  var name    = getVal('f-name')     || '[기관명]';
+  var type    = getVal('f-type')     || '[법인 유형]';
+  var target  = getVal('f-target')   || '[사업 대상]';
+  var field   = getVal('f-field')    || '[사업 분야]';
+  var biz     = getVal('f-biz')      || '[주요 사업 목록]';
+  var budget  = getVal('f-budget')   || '[연간 예산]';
+  var finance = getVal('f-finance')  || '[재원 구조 비율]';
+  var staff   = getVal('f-staff')    || '[직원 수]';
+  var issue   = getVal('f-issue')    || '[현재 고충]';
+  var hard    = getVal('f-hardwork') || '[가장 힘든 업무]';
+
+  var prompts = {};
+
+  prompts[1] = name + '의 성공 전략을 심층 연구해줘.\n'
+    + '이 기관은 ' + target + '을 위한 ' + field + ' 사업을 진행하는 ' + type + '이야.\n'
+    + '현재 주요 고충은 ' + issue + '이야.\n\n'
+    + '사업성과, 재정(재원구조 포함), 홍보·마케팅, 인사·조직문화,\n'
+    + '거버넌스, 디지털 전환 영역별로 현실적인 성공 전략을 분석하고,\n'
+    + '유사 기관 성공 사례를 함께 제시해줘.\n'
+    + '각 영역별 핵심 성공요인(KSF) 3가지와 즉시 적용 가능한 실천 방안도 포함해줘.';
+
+  prompts[2] = target + '을 위한 ' + field + ' 사업을 하는 비영리기관 중\n'
+    + '성공한 기관 상위 10개를 선정하고 다음 5가지 항목으로 분석해줘.\n\n'
+    + '① 인기 요인 (신뢰도, 인지도, 당사자 중심성 등)\n'
+    + '② 재원 구조 (정부보조금 : 기부금 : 자체수익 비율 및 특징)\n'
+    + '③ 성장 원인 (결정적 변화 시점, 리더십, 사업 혁신)\n'
+    + '④ 핵심 차별화 전략 (타 기관과 다른 경쟁 우위)\n'
+    + '⑤ ' + name + '이 벤치마킹할 수 있는 포인트\n\n'
+    + '한국 기관을 우선 선정하고, 참고 해외 사례도 2~3개 포함해줘.';
+
+  prompts[3] = name + '의 주요 사업은 ' + biz + '이야.\n'
+    + '구성원은 ' + staff + '명이고, 주요 업무 고충은 ' + issue + '이야.\n\n'
+    + '① 번아웃을 유발하는 반복·비효율 업무를 구체적으로 파악하고\n'
+    + '② AI(Claude, ChatGPT 등)로 대체·자동화 가능한 업무를 우선순위로 선정하고\n'
+    + '③ 각 업무별 AI 적용 방법과 예상 시간 절감 효과를 제시해줘.\n\n'
+    + '특히 ' + hard + ' 업무를 중점적으로 분석해줘.';
+
+  prompts[4] = '지금까지 연구한 자료와 아래 우리 기관 정보를 바탕으로 맞춤 컨설팅을 해줘.\n\n'
+    + '[기관 기본 정보]\n'
+    + '- 기관명: ' + name + '\n'
+    + '- 법인 유형: ' + type + '\n'
+    + '- 주요 사업: ' + biz + '\n'
+    + '- 연간 예산: ' + budget + '\n'
+    + '- 재원 구조: ' + finance + '\n'
+    + '- 직원 현황: ' + staff + '\n'
+    + '- 현재 3대 고충: ' + issue + '\n\n'
+    + '[컨설팅 요청 사항]\n'
+    + '① 사업 구조 컨설팅 — 강점 유지 + 개선 포인트\n'
+    + '② 재정 구조 개선 방안 — 단기(3개월) / 중장기(1~3년) 구분\n'
+    + '③ AI 자동화 적용 업무 선정 — 우선순위 Top 5 (도구+방법 포함)\n'
+    + '④ 3개월 실행 로드맵 — 월별 To-do 형식';
+
+  // Render tabs and prompts
+  var tabsHtml = '';
+  var promptsHtml = '';
+  var first = true;
+  selectedSteps.forEach(function(s) {
+    var activeClass = first ? ' active' : '';
+    tabsHtml += '<button class="result-tab' + activeClass + '" onclick="switchResultTab(' + s + ', this)">' + s + '단계</button>';
+    promptsHtml += '<div class="result-prompt' + activeClass + '" id="rp-' + s + '">' + prompts[s] + '</div>';
+    first = false;
+  });
+
+  document.getElementById('result-tabs').innerHTML = tabsHtml;
+  document.getElementById('result-prompts').innerHTML = promptsHtml;
+  document.getElementById('result-section').classList.add('show');
+  document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function switchResultTab(step, btn) {
+  document.querySelectorAll('.result-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.result-prompt').forEach(function(p) { p.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('rp-' + step).classList.add('active');
+}
+
+function copyCurrentPrompt() {
+  var active = document.querySelector('.result-prompt.active');
+  if (!active) return;
+  var text = active.innerText.trim();
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = document.getElementById('copy-current-btn');
+    var orig = btn.textContent;
+    btn.textContent = '복사 완료!';
+    setTimeout(function() { btn.textContent = orig; }, 2000);
+  });
+}
+
+function copyAllPrompts() {
+  var all = '';
+  document.querySelectorAll('.result-prompt').forEach(function(p, i) {
+    if (i > 0) all += '\n\n' + '='.repeat(40) + '\n\n';
+    all += p.innerText.trim();
+  });
+  navigator.clipboard.writeText(all).then(function() {
+    alert('전체 프롬프트가 복사되었습니다!');
+  });
+}
+
+function resetGenerator() {
+  ['f-name','f-type','f-target','f-field','f-biz','f-budget','f-finance','f-staff','f-issue','f-hardwork'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el.tagName === 'SELECT') el.selectedIndex = 0;
+    else el.value = '';
+  });
+  document.getElementById('result-section').classList.remove('show');
+}
+
+// ── CHECKLIST (ENHANCED v2) ──────────────────────────
+var checkCounts  = [0,0,0,0,0,0];
+var checkTotals  = [5,6,5,6,4,4];
+var catNames     = ['미션·비전·전략','재정 전략','홍보·마케팅','인사·조직문화','디지털 전환·AI','거버넌스·이사회'];
+var catIcons     = ['🧭','💰','📣','👥','🤖','🏛️'];
+var catColors    = ['#0d6e56','#c8923a','#5048b0','#b02848','#0d6e56','#c8923a'];
+var totalItems   = 30;
+var checkedTotal = 0;
+var currentDiagPromptTab = 0;
+var diagPrompts  = [];
+
+/* init mini dots */
+(function(){
+  var row = document.getElementById('cl-cat-mini-row');
+  if (!row) return;
+  var html = '';
+  for (var i = 0; i < 6; i++) {
+    html += '<div class="cl-cat-mini" id="cl-cm-'+i+'">'
+          + '<div class="cl-cat-mini-dot" style="background:'+catColors[i]+'"></div>'
+          + catIcons[i] + ' <span id="cl-cmn-'+i+'">0/'+checkTotals[i]+'</span></div>';
+  }
+  row.innerHTML = html;
+})();
+
+function toggleCheck(item, catIdx) {
+  var box  = item.querySelector('.check-box');
+  var text = item.querySelector('.check-text');
+  var was  = box.classList.contains('checked');
+  if (was) { box.classList.remove('checked'); text.classList.remove('checked'); checkCounts[catIdx]--; checkedTotal--; }
+  else     { box.classList.add('checked');    text.classList.add('checked');    checkCounts[catIdx]++; checkedTotal++; }
+  updateClHeader(catIdx);
+  document.getElementById('diag-result-panel').classList.remove('show');
+}
+
+function updateClHeader(catIdx) {
+  var pct = Math.round((checkedTotal / totalItems) * 100);
+  var scoreEl = document.getElementById('cl-score-num');
+  if (scoreEl) scoreEl.textContent = checkedTotal;
+  document.getElementById('progress-bar').style.width = pct + '%';
+  var pctEl = document.getElementById('cl-prog-pct');
+  if (pctEl) pctEl.textContent = pct + '%';
+
+  var cp = checkCounts[catIdx], ct = checkTotals[catIdx];
+  var bp = Math.round((cp / ct) * 100);
+  var badge = document.getElementById('cat-count-' + catIdx);
+  badge.textContent = cp + '/' + ct;
+  badge.className   = 'check-cat-count ' + (bp >= 80 ? 'ccsb-good' : bp >= 50 ? 'ccsb-mid' : cp > 0 ? 'ccsb-low' : 'ccsb-none');
+
+  var miniEl = document.getElementById('cl-cmn-' + catIdx);
+  if (miniEl) miniEl.textContent = cp + '/' + ct;
+}
+
+function toggleCat(idx) {
+  document.getElementById('cat-' + idx).classList.toggle('check-cat-open');
+}
+
+function resetChecklist() {
+  document.querySelectorAll('.check-box').forEach(function(b) { b.classList.remove('checked'); });
+  document.querySelectorAll('.check-text').forEach(function(t) { t.classList.remove('checked'); });
+  checkCounts = [0,0,0,0,0,0]; checkedTotal = 0;
+  for (var i = 0; i < 6; i++) updateClHeader(i);
+  document.getElementById('diag-result-panel').classList.remove('show');
+}
+
+// ── CATEGORY INTERPRETATION DATA ──────────────────────
+var catInterpData = {
+  '미션·비전·전략': {
+    good: { summary: '미션과 비전이 잘 정립되어 있고 구성원과 공유되고 있습니다. 이 강점을 바탕으로 전략 실행력을 높이는 단계로 나아가세요.',
+      actions: [{ title: '비전 달성 중간 점검 체계 구축', desc: '반기·분기별로 비전 달성 현황을 구성원과 공유하는 리뷰 미팅을 도입하세요.', ai: '💡 AI 활용: "우리 기관 비전 달성도 점검 회의 진행 가이드 작성해줘"' },
+               { title: '핵심가치 기반 채용 면접 문항 개발', desc: '핵심가치에 부합하는 인재를 채용할 수 있도록 가치 기반 면접 질문을 만드세요.', ai: '💡 AI 활용: "NPO 핵심가치 기반 면접 질문 10개 만들어줘"' }] },
+    mid: { summary: '기본적인 미션·비전 체계는 갖춰져 있지만 구성원 공유나 실제 업무 연결이 아직 약한 상태입니다.',
+      actions: [{ title: '미션 카드 제작 및 일상 업무 연결', desc: '주간 회의에서 "이번 주 우리가 미션을 실현한 사례"를 1개씩 나누는 문화를 만드세요.', ai: '💡 AI 활용: "비영리기관 미션 공유 워크숍 프로그램 설계해줘"' },
+               { title: '비전 수립 또는 재정립 워크숍 개최', desc: '구성원 전체가 참여하는 반나절 워크숍으로 비전을 수립하거나 현재 비전 공유 현황을 확인하세요.', ai: '💡 AI 활용: "NPO 비전 수립 워크숍 진행 매뉴얼 작성해줘"' }] },
+    low: { summary: '조직의 방향성과 존재 이유가 명확하지 않습니다. 미션이 없으면 재정·홍보·인사 전략이 모두 방향을 잃습니다. 가장 먼저 해결해야 할 과제입니다.',
+      actions: [{ title: '1페이지 기관 프로필 작성 — 오늘부터 시작', desc: '기관명, 설립연도, 사업 대상, 핵심 사업, 우리가 만들고 싶은 변화를 한 장에 정리하세요.', ai: '💡 AI 활용: "비영리기관 미션 문장 작성 도와줘. 우리 기관 정보는 [입력]야"' },
+               { title: '구성원 대상 미션 인터뷰 실시', desc: '"우리 기관이 왜 존재해야 하는가?"를 각 구성원에게 물어보고 답변을 수집·정리해 미션 초안을 만드세요.', ai: '💡 AI 활용: "NPO 미션 문장 도출을 위한 구성원 인터뷰 질문지 만들어줘"' },
+               { title: '리더십 팀 반나절 전략 워크숍 개최', desc: 'AI 가이드를 활용해 미션·비전·핵심가치를 1일 안에 초안으로 완성할 수 있습니다.', ai: '💡 AI 활용: "NPO 미션·비전·핵심가치 수립 워크숍 전체 진행 가이드 만들어줘"' }] }
+  },
+  '재정 전략': {
+    good: { summary: '재정 구조가 비교적 안정적으로 다각화되어 있습니다. 이제는 자체 수익 비중을 높이고 기부자 관계를 심화하는 단계입니다.',
+      actions: [{ title: '기존 후원자 업그레이드 캠페인', desc: '소액 후원자 중 잠재 대형 후원자를 발굴해 1:1 관계를 강화하고 후원 금액 업그레이드를 제안하세요.', ai: '💡 AI 활용: "NPO 후원자 업그레이드 캠페인 메시지 템플릿 만들어줘"' },
+               { title: '소규모 자체 수익 사업 파일럿 시작', desc: '기관의 전문성을 활용한 교육, 컨설팅, 소셜굿즈 판매를 소규모로 시험해보세요.', ai: '💡 AI 활용: "비영리기관 운영 가능한 자체 수익 사업 아이디어 10개 제안해줘"' }] },
+    mid: { summary: '재정 기반이 어느 정도 갖춰졌지만 보조금 의존도가 여전히 높거나 비상 자금이 부족한 상태입니다.',
+      actions: [{ title: '공모사업 포트폴리오 구성', desc: '연간 공모사업 달력을 만들고 분기별 1건 이상 신청하는 것을 목표로 삼으세요.', ai: '💡 AI 활용: "사회복지 공모사업 제안서 기본 템플릿 만들어줘"' },
+               { title: '소액 정기후원 캠페인 시작', desc: '월 1만원 정기후원자 50명을 목표로 캠페인을 시작하세요.', ai: '💡 AI 활용: "정기후원 모집 캠페인 SNS 게시물 5개 시리즈 만들어줘"' }] },
+    low: { summary: '재정 구조가 매우 취약합니다. 정부보조금에 대한 과도한 의존은 기관 존폐의 위협 요소입니다. 지금 당장 재원 다각화를 시작해야 합니다.',
+      actions: [{ title: '현재 재원 구조 분석 — 의존도 파악', desc: '수입원별 비율을 정확히 파악하고, 정부보조금이 70% 이상이라면 이를 공식 위기 신호로 인식하세요.', ai: '💡 AI 활용: "비영리기관 재원 다각화 전략 수립 가이드 만들어줘"' },
+               { title: '후원자 DB 구축 — 지금 당장 시작', desc: '잠재 후원자 20명의 이름과 연락처를 구글 시트에 정리하는 것부터 시작하세요.', ai: '💡 AI 활용: "NPO 후원자 관리 DB 구글 시트 템플릿 설계해줘"' },
+               { title: '비상 예비비 적립 계획 수립', desc: '매달 운영비의 5~10%를 별도 통장에 적립하는 예비비 제도를 도입하세요.', ai: '💡 AI 활용: "소규모 NPO 비상 예비비 운용 방안 알려줘"' }] }
+  },
+  '홍보·마케팅': {
+    good: { summary: '홍보 채널이 잘 운영되고 있습니다. 이제는 콘텐츠 품질과 후원자 전환율을 높이는 데 집중하세요.',
+      actions: [{ title: '임팩트 보고서 고도화', desc: '당사자 변화 스토리 + 숫자 근거를 결합한 임팩트 보고서로 업그레이드하세요.', ai: '💡 AI 활용: "비영리기관 연간 임팩트 보고서 구성 및 작성 가이드 만들어줘"' },
+               { title: 'SNS 콘텐츠 AI 자동화 도입', desc: '월간 활동 요약을 AI에 입력하면 한 번에 SNS 게시물 초안 10개를 만들 수 있습니다.', ai: '💡 AI 활용: "이번 달 활동 내용: [입력]. 인스타그램 게시물 10개 초안 만들어줘"' }] },
+    mid: { summary: '기본 홍보 활동은 하고 있지만 일관성이나 콘텐츠 품질이 아직 아쉬운 상태입니다.',
+      actions: [{ title: 'SNS 채널 1개 집중 운영', desc: '인스타그램 또는 블로그 중 1개를 선택해 월 8회 이상 꾸준히 게시하세요.', ai: '💡 AI 활용: "비영리기관 인스타그램 콘텐츠 캘린더 월간 계획 만들어줘"' },
+               { title: '당사자 변화 스토리 시리즈 시작', desc: '"○○○의 변화 이야기" 형식의 콘텐츠를 월 1건씩 꾸준히 발행하세요.', ai: '💡 AI 활용: "비영리기관 당사자 변화 스토리 인터뷰 질문지와 콘텐츠 가이드 만들어줘"' }] },
+    low: { summary: '홍보·마케팅이 거의 이루어지지 않고 있습니다. 좋은 사업을 해도 알려지지 않으면 후원이 늘지 않습니다.',
+      actions: [{ title: '카카오채널 또는 인스타그램 계정 개설', desc: '완벽하지 않아도 됩니다. 오늘 당장 계정을 만들고 기관 소개 첫 게시물을 올리세요.', ai: '💡 AI 활용: "비영리기관 SNS 첫 게시물 작성 도와줘. 기관 소개: [입력]"' },
+               { title: '후원자 감사 메시지 발송', desc: '현재 후원자에게 카카오 또는 이메일로 감사 인사를 전하세요. AI가 5분 안에 초안을 만들어줍니다.', ai: '💡 AI 활용: "NPO 후원자 감사 메시지 3가지 버전 만들어줘 (이메일/카카오/손편지)"' },
+               { title: '기관 소개 1페이지 리플릿 제작', desc: 'AI와 무료 디자인 도구(미리캔버스, 캔바)로 1일 안에 기관 소개 리플릿을 만들 수 있습니다.', ai: '💡 AI 활용: "비영리기관 소개 리플릿 내용 구성 및 문구 작성해줘"' }] }
+  },
+  '인사·조직문화': {
+    good: { summary: '구성원 관리 시스템이 잘 갖춰져 있습니다. 이제는 조직문화를 더욱 강화하고 구성원이 성장할 수 있는 경로를 만드세요.',
+      actions: [{ title: '구성원 경력 개발 계획(IDP) 도입', desc: '연 1회 구성원 개인의 역량 개발 목표와 지원 계획을 1:1 면담으로 수립하세요.', ai: '💡 AI 활용: "비영리기관 사회복지사 개인 경력 개발 계획(IDP) 템플릿 만들어줘"' },
+               { title: '조직문화 정기 측정', desc: '반기별 익명 구성원 만족도 조사를 실시하고 결과를 구성원과 공유하세요.', ai: '💡 AI 활용: "NPO 구성원 조직문화 만족도 설문 문항 15개 만들어줘"' }] },
+    mid: { summary: '기본적인 인사 시스템은 갖춰졌지만 번아웃 예방이나 성장 지원 체계가 아직 충분하지 않습니다.',
+      actions: [{ title: '슈퍼비전 제도 도입 — 월 1회부터 시작', desc: '외부 슈퍼바이저 없이도 선임 사회복지사가 진행하는 내부 슈퍼비전을 월 1회 시작하세요.', ai: '💡 AI 활용: "사회복지기관 내부 슈퍼비전 진행 가이드 및 기록지 양식 만들어줘"' },
+               { title: '익명 피드백 채널 개설', desc: '구글 폼으로 익명 건의함을 만들고 링크를 공유하세요.', ai: '💡 AI 활용: "비영리기관 구성원 익명 의견함 운영 방법과 피드백 처리 매뉴얼 만들어줘"' }] },
+    low: { summary: '인사·조직문화 시스템이 거의 갖춰지지 않았습니다. 이 상태가 지속되면 구성원 번아웃과 이직이 반복됩니다. 비영리 현장에서 인사는 "사람이 곧 서비스"이기 때문에 가장 중요합니다.',
+      actions: [{ title: '직무 기술서(JD) 작성 — 이번 주 완료', desc: '각 구성원의 주요 업무를 5~10개 항목으로 정리한 1페이지 JD를 만드세요.', ai: '💡 AI 활용: "사회복지관 사례관리사 직무 기술서(JD) 작성해줘"' },
+               { title: '1:1 면담 월 1회 도입', desc: '"요즘 어떤 업무가 가장 힘드세요?"라는 질문 하나만으로도 면담을 시작할 수 있습니다.', ai: '💡 AI 활용: "NPO 리더-구성원 1:1 월간 면담 질문지 만들어줘"' },
+               { title: '구성원 번아웃 실태 익명 설문 실시', desc: '현재 구성원의 번아웃 수준을 파악하는 것이 첫걸음입니다.', ai: '💡 AI 활용: "비영리기관 구성원 번아웃 실태 파악 설문 문항 10개 만들어줘"' }] }
+  },
+  '디지털 전환·AI': {
+    good: { summary: 'AI와 디지털 도구를 적극 활용하고 있습니다. 이제는 더 고도화된 자동화와 데이터 기반 의사결정으로 나아가세요.',
+      actions: [{ title: 'AI 활용 업무 확대 — 3개 이상 자동화', desc: '보고서, 교육 자료, 이용자 기록 등 추가 2~3개 업무를 AI화하세요.', ai: '💡 AI 활용: "비영리기관에서 Claude로 자동화할 수 있는 업무 목록과 프롬프트 템플릿 10개 만들어줘"' },
+               { title: '데이터 기반 사업 성과 보고 도입', desc: '이용자 수, 서비스 시간, 만족도 등 주요 지표를 대시보드로 시각화해 보고서에 활용하세요.', ai: '💡 AI 활용: "비영리기관 사업 성과 대시보드 설계 방법과 지표 목록 만들어줘"' }] },
+    mid: { summary: '일부 디지털 도구를 활용하고 있지만 AI 활용이나 자동화 수준이 아직 초기 단계입니다.',
+      actions: [{ title: 'Claude/ChatGPT 업무 활용 시작', desc: '가장 시간이 많이 걸리는 업무(보고서 초안, SNS) 1가지를 선택해 AI를 적용해보세요.', ai: '💡 AI 활용: "비영리기관 월간 결과보고서 초안 작성 프롬프트 템플릿 만들어줘"' },
+               { title: '구성원 AI 활용 교육 1회 실시', desc: '점심 30분, Claude 기본 사용법을 팀 전체에 공유하는 시간을 만드세요.', ai: '💡 AI 활용: "비영리기관 직원 대상 AI 도구 기초 교육 30분 커리큘럼 만들어줘"' }] },
+    low: { summary: '디지털 전환이 거의 이루어지지 않았습니다. AI를 활용하면 지금 당장 매주 수시간의 업무 시간을 절약할 수 있습니다.',
+      actions: [{ title: 'Claude 또는 ChatGPT 계정 개설 — 오늘 당장', desc: 'Claude.ai 또는 ChatGPT에 무료 계정을 만들고 내일 첫 번째 업무 초안 작성에 사용해보세요.', ai: '💡 접속: claude.ai | chat.openai.com (무료 버전으로 시작 가능)' },
+               { title: '가장 힘든 행정 업무 1개에 AI 적용', desc: '월례 보고서, 공문 초안, SNS 게시물 중 가장 힘든 것 1개에 AI를 써보세요.', ai: '💡 AI 활용: "우리 기관 이번 달 활동은 [입력]야. 이사회 보고용 월간 실적 보고서 초안 만들어줘"' },
+               { title: '이용자 DB 구글 시트로 통합 관리', desc: '여기저기 흩어진 이용자 명단을 구글 시트 하나로 통합하고 공유하세요.', ai: '💡 AI 활용: "장애인복지기관 이용자 관리 구글 시트 템플릿 설계해줘"' }] }
+  },
+  '거버넌스·이사회': {
+    good: { summary: '거버넌스 체계가 잘 갖춰져 있습니다. 이사회의 기능을 더 전략적으로 활용하고 외부 신뢰도를 높이는 단계입니다.',
+      actions: [{ title: '이사회 전략 세션 연 1회 개최', desc: '정례 이사회 외에 중장기 전략을 논의하는 전략 세션을 연 1회 운영하세요.', ai: '💡 AI 활용: "비영리기관 이사회 전략 세션 진행 아젠다 및 사전 자료 작성해줘"' },
+               { title: '투명성 보고서 외부 공개', desc: '연간 재정 현황과 사업 성과를 담은 투명성 보고서를 홈페이지에 공개하세요.', ai: '💡 AI 활용: "비영리기관 연간 투명성 보고서 작성 가이드와 템플릿 만들어줘"' }] },
+    mid: { summary: '이사회가 존재하지만 실질적인 기능이 충분하지 않거나 투명성 공개가 미흡한 상태입니다.',
+      actions: [{ title: '이사회 연간 일정 확정 및 공지', desc: '연초에 이사회 개최 일정을 확정하고 이사들에게 미리 공지하세요.', ai: '💡 AI 활용: "비영리기관 이사회 연간 운영 일정표와 진행 체크리스트 만들어줘"' },
+               { title: '전문 역량 이사 1명 영입 추진', desc: '법률, 회계, 마케팅 중 가장 필요한 분야의 전문가를 이사로 영입하는 것을 목표로 삼으세요.', ai: '💡 AI 활용: "NPO 이사 영입 제안서 및 역할 안내서 작성해줘"' }] },
+    low: { summary: '거버넌스 체계가 미흡합니다. 이사회가 형식적으로만 운영되면 감사나 공모사업에서 불이익을 받을 수 있고 이해관계자의 신뢰를 잃기 쉽습니다.',
+      actions: [{ title: '이사회 정기 개최 일정 즉시 수립', desc: '다음 이사회 날짜를 오늘 중으로 정하고 이사들에게 통보하세요. 분기 1회를 기본으로 삼으세요.', ai: '💡 AI 활용: "소규모 NPO 이사회 기본 운영 매뉴얼과 정기회의 안건 템플릿 만들어줘"' },
+               { title: '재정 공개 페이지 홈페이지에 추가', desc: '연간 수입·지출 내역을 요약한 1페이지를 홈페이지에 게시하세요.', ai: '💡 AI 활용: "비영리기관 재정 공개 페이지 작성 양식과 문구 만들어줘"' },
+               { title: '법인 정관 및 이사 구성 점검', desc: '현재 이사 구성이 정관 요건을 충족하는지, 임기 도과된 이사는 없는지 즉시 확인하세요.', ai: '💡 AI 활용: "사단법인 이사회 구성 및 운영의 법적 요건 정리해줘"' }] }
+  }
+};
+
+// ── DIAGNOSIS RESULT ─────────────────────────────────
+function showDiagResult() {
+  var total = checkedTotal;
+  var pct   = Math.round((total / totalItems) * 100);
+
+  /* 1. 등급 결정 */
+  var level, lvClass, badgeClass, tagClass, emoji, title, desc;
+  if (total <= 9) {
+    level=1; lvClass='level-lv1'; badgeClass='badge-lv1'; tagClass='tag-lv1'; emoji='🔴';
+    title = '기초 단계 — 경영 시스템 전반 재점검 필요';
+    desc  = '현재 조직의 경영 기반이 아직 충분히 갖춰지지 않은 상태입니다. 미션·비전부터 재정·인사까지 전 영역에 걸쳐 기본 시스템을 구축하는 것이 최우선 과제입니다. 한 번에 모든 것을 바꾸려 하지 말고, 가장 급한 1~2개 영역부터 집중하세요. 지금 상태를 솔직하게 인식하는 것 자체가 변화의 시작입니다.';
+  } else if (total <= 18) {
+    level=2; lvClass='level-lv2'; badgeClass='badge-lv2'; tagClass='tag-lv2'; emoji='🟡';
+    title = '성장 단계 — 특정 영역 집중 개선이 핵심';
+    desc  = '기본 운영 기반은 갖추어져 있지만, 특정 영역에서 명확한 약점이 드러나고 있습니다. 이 단계에서 약점 영역을 방치하면 조직 성장의 병목이 됩니다. 아래 영역별 점수를 확인하고 가장 낮은 점수의 영역 1~2개를 집중 개선하세요. AI를 활용한 업무 효율화와 재정 다각화 전략 수립이 지금 가장 효과적입니다.';
+  } else if (total <= 24) {
+    level=3; lvClass='level-lv3'; badgeClass='badge-lv3'; tagClass='tag-lv3'; emoji='🟢';
+    title = '성숙 단계 — 강점을 살리고 약점을 집중 보완';
+    desc  = '전반적으로 안정적인 경영 시스템을 갖추고 있습니다. 이제는 잘 하는 영역은 더욱 발전시키고, 아직 미흡한 영역을 구체적으로 보완하는 전략이 필요합니다. 디지털 전환과 AI 도입을 통해 업무 효율을 높이고, 남은 약점 영역을 개선하면 선도 기관으로 도약할 수 있습니다.';
+  } else {
+    level=4; lvClass='level-lv4'; badgeClass='badge-lv4'; tagClass='tag-lv4'; emoji='🔵';
+    title = '선도 단계 — 지속 혁신과 성과 공유가 과제';
+    desc  = '비영리 경영의 전 영역에서 높은 수준의 시스템을 갖추고 있습니다. 이제는 지속적인 혁신을 통해 업계 모범 기관으로 자리매김할 때입니다. AI를 활용한 임팩트 측정 고도화, 타 기관과의 협력 확대, 성공 경험을 지역사회와 공유하는 것이 다음 단계 목표입니다.';
+  }
+
+  /* level card */
+  document.getElementById('diag-level-card').innerHTML =
+    '<div class="level-card ' + lvClass + '">'
+    + '<div class="level-top">'
+    + '<div class="level-badge ' + badgeClass + '">' + emoji + '</div>'
+    + '<div>'
+    + '<span class="level-tag ' + tagClass + '">'+['','기초 단계','성장 단계','성숙 단계','선도 단계'][level]+' · Lv.'+level+'</span>'
+    + '<div class="level-title">' + title + '</div>'
+    + '<div class="level-score">총점 <strong>' + total + '</strong> / 30점 &nbsp;·&nbsp; 달성률 ' + pct + '%</div>'
+    + '</div></div>'
+    + '<div class="level-desc">' + desc + '</div>'
+    + '</div>';
+
+  /* 2. Bars */
+  var barsHTML = '';
+  for (var i = 0; i < 6; i++) {
+    var cp = checkCounts[i], ct = checkTotals[i];
+    var bp = Math.round((cp / ct) * 100);
+    var fc = bp >= 80 ? 'good' : bp >= 60 ? 'mid' : 'low';
+    var sl = bp >= 80 ? '✅ 우수' : bp >= 60 ? '⚠️ 보통' : '🔴 집중개선';
+    var sc = bp >= 80 ? 'status-good' : bp >= 60 ? 'status-mid' : 'status-low';
+    barsHTML += '<div class="cat-bar-row">'
+      + '<div class="cat-bar-label">' + catIcons[i] + ' ' + catNames[i] + '</div>'
+      + '<div class="cat-bar-wrap"><div class="cat-bar-fill ' + fc + '" style="width:' + bp + '%"></div></div>'
+      + '<div class="cat-bar-pct ' + fc + '">' + cp + '/' + ct + '</div>'
+      + '<div class="cat-bar-status ' + sc + '">' + sl + '</div>'
+      + '</div>';
+  }
+  document.getElementById('diag-cat-bars').innerHTML = barsHTML;
+
+  /* 3. Category interpretations */
+  var ciHTML = '';
+  for (var j = 0; j < 6; j++) {
+    var cp2 = checkCounts[j], ct2 = checkTotals[j];
+    var bp2 = Math.round((cp2 / ct2) * 100);
+    var tier = bp2 >= 80 ? 'good' : bp2 >= 50 ? 'mid' : 'low';
+    var tColor = bp2 >= 80 ? 'var(--teal)' : bp2 >= 50 ? '#b7791f' : '#c53030';
+    var tBg    = bp2 >= 80 ? 'var(--teal-light)' : bp2 >= 50 ? '#fffbea' : '#fff5f5';
+    var tLabel = bp2 >= 80 ? '✅ 우수' : bp2 >= 50 ? '⚠️ 보통' : '🔴 개선 필요';
+    var data = catInterpData[catNames[j]];
+    if (!data) continue;
+    var d = data[tier];
+    var acHTML = '';
+    d.actions.forEach(function(ac, k) {
+      acHTML += '<div class="ci-action">'
+        + '<div class="ci-action-num" style="background:' + catColors[j] + '25;color:' + catColors[j] + '">' + (k+1) + '</div>'
+        + '<div class="ci-action-text"><strong>' + ac.title + '</strong>' + ac.desc
+        + '<div class="ci-action-ai">' + ac.ai + '</div></div></div>';
+    });
+    ciHTML += '<div class="cat-interp-card">'
+      + '<div class="cat-interp-header">'
+      + '<div class="ci-icon">' + catIcons[j] + '</div>'
+      + '<div class="ci-name">' + catNames[j] + '</div>'
+      + '<div class="ci-status-wrap">'
+      + '<div class="ci-pct" style="color:' + tColor + '">' + bp2 + '%</div>'
+      + '<div class="ci-status-tag" style="background:' + tBg + ';color:' + tColor + '">' + tLabel + '</div>'
+      + '</div></div>'
+      + '<div class="ci-body"><div class="ci-summary">' + d.summary + '</div>'
+      + '<div class="ci-actions">' + acHTML + '</div></div></div>';
+  }
+  document.getElementById('diag-cat-interp').innerHTML = ciHTML;
+
+  /* 4. Timeline */
+  var weak = [];
+  for (var k = 0; k < 6; k++) {
+    weak.push({ idx: k, name: catNames[k], icon: catIcons[k], pct: Math.round((checkCounts[k]/checkTotals[k])*100) });
+  }
+  weak.sort(function(a,b){ return a.pct - b.pct; });
+
+  var m1 = ['현재 자가진단 결과를 팀 회의에서 공유'],
+      m2 = ['AI 자동화 업무 2개 이상 정착'],
+      m3 = ['3개월 개선 성과 측정 및 팀 공유', 'AI 컨설팅 4단계 전략 수립 착수'];
+  if (weak[0]) m1.push(weak[0].icon+' '+weak[0].name+' 영역 긴급 개선 착수');
+  if (weak[1]) m1.push(weak[1].icon+' '+weak[1].name+' 개선 계획 수립');
+  m1.push('AI 도구(Claude/ChatGPT) 업무 첫 적용 시작');
+  if (weak[0]) m2.push(weak[0].icon+' '+weak[0].name+' 1차 개선 완료 검토');
+  if (weak[2]) m2.push(weak[2].icon+' '+weak[2].name+' 개선 착수');
+  if (level <= 2) m2.push('공모사업 1건 신청 또는 후원 캠페인 시작');
+  if (level >= 3) m3.push('임팩트 측정 체계 구축 시작');
+
+  function tlItem(dotColor, month, title2, tasks) {
+    return '<div class="tl-item">'
+      + '<div class="tl-dot" style="background:'+dotColor+'"></div>'
+      + '<div class="tl-month">'+month+'</div>'
+      + '<div class="tl-title">'+title2+'</div>'
+      + '<div class="tl-tasks">'+tasks.map(function(t){ return '<div class="tl-task">'+t+'</div>'; }).join('')+'</div></div>';
+  }
+  document.getElementById('diag-timeline').innerHTML =
+    tlItem('#e53e3e','Month 1 — 즉시 착수','가장 급한 약점 영역 개선 + AI 첫 적용', m1)
+   +tlItem('#d69e2e','Month 2 — 시스템 구축','개선 영역 확대 + AI 업무 정착', m2)
+   +tlItem('#0d6e56','Month 3 — 성과 점검','변화 측정 + 다음 단계 전략 수립', m3);
+
+  /* 5. AI Prompts (4단계) */
+  var weakNames3 = weak.slice(0,3).map(function(w){ return w.name; }).join(', ');
+  var focus = weak[0] ? weak[0].name : '전략 전반';
+
+  diagPrompts = [
+    '우리 기관의 자가진단 결과를 바탕으로 경영 전략을 심층 연구해줘.\n\n[진단 결과]\n- 종합: '+total+'/30점 ('+pct+'%) · '+['','기초','성장','성숙','선도'][level]+' 단계\n- 취약 영역: '+weakNames3+'\n- 최우선 개선: '+focus+'\n\n이 결과를 바탕으로 비영리조직 성공 전략 프레임워크를 연구해줘.\n특히 '+focus+' 영역에서 유사한 한국 비영리기관이 어떻게 개선했는지 구체적 사례와 함께 분석해줘.',
+
+    '우리 기관과 유사한 조건의 비영리기관 중 성공한 곳 10개를 선정하고 분석해줘.\n\n[우리 기관 조건]\n- 진단 등급: '+['','기초','성장','성숙','선도'][level]+' 단계 ('+total+'/30점)\n- 취약 영역: '+weakNames3+'\n\n① 인기 요인 ② 재원 구조 ③ 성장 원인 ④ '+focus+' 영역 성공 전략을 분석하고 우리 기관이 즉시 벤치마킹할 수 있는 포인트를 함께 제시해줘.',
+
+    '우리 기관 구성원의 번아웃 유발 업무를 분석하고 AI 대체 방안을 연구해줘.\n\n[현황]\n- 인사·조직문화 점수: '+checkCounts[3]+'/'+checkTotals[3]+'점\n- 디지털 전환 점수: '+checkCounts[4]+'/'+checkTotals[4]+'점\n\n① 비영리 현장 번아웃 유발 업무 Top 10\n② 각 업무별 AI 대체 방법과 프롬프트 예시\n③ 이번 달 바로 시작할 수 있는 AI 자동화 업무 3가지 선정',
+
+    '앞서 연구한 내용을 바탕으로 우리 기관 맞춤 컨설팅을 해줘.\n\n[진단 요약]\n- 종합: '+total+'/30점 · '+['','기초','성장','성숙','선도'][level]+' 단계\n- 최우선 개선: '+focus+'\n\n① 사업 구조 개선 — 강점 유지 + 약점 보완\n② 재정 구조 다각화 — 단기(3개월)/중장기(1~3년)\n③ AI 자동화 적용 업무 Top 5 — 도구 + 프롬프트 포함\n④ 3개월 우선 실행 계획 (주별 To-do 형식)'
+  ];
+  currentDiagPromptTab = 0;
+
+  var tabLabels = ['1단계: 전략 연구','2단계: 벤치마킹','3단계: 업무 진단','4단계: 맞춤 전략'];
+  var tabsHTML = '', textsHTML = '';
+  tabLabels.forEach(function(lbl, i) {
+    tabsHTML  += '<button class="pr-tab'+(i===0?' active':'')+'" onclick="switchDiagTab('+i+',this)">'+lbl+'</button>';
+    textsHTML += '<div class="prompt-rec-box'+(i===0?' active':'')+'" id="dpt-'+i+'">'+diagPrompts[i]+'</div>';
+  });
+  document.getElementById('diag-prompt-tabs').innerHTML  = tabsHTML;
+  document.getElementById('diag-prompt-texts').innerHTML = textsHTML;
+
+  /* show */
+  var panel = document.getElementById('diag-result-panel');
+  panel.classList.add('show');
+  setTimeout(function() { panel.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150);
+}
+
+function switchDiagTab(idx, btn) {
+  document.querySelectorAll('.pr-tab').forEach(function(b) { b.classList.remove('active'); });
+  document.querySelectorAll('.prompt-rec-box').forEach(function(p) { p.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('dpt-' + idx).classList.add('active');
+  currentDiagPromptTab = idx;
+}
+
+function copyDiagPrompt() {
+  var text = diagPrompts[currentDiagPromptTab] || '';
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = event.currentTarget;
+    var orig = btn.textContent;
+    btn.textContent = '✅ 복사 완료!';
+    setTimeout(function() { btn.textContent = orig; }, 2000);
+  });
+}
+
+function copyDiagSummary() {
+  var pct = Math.round((checkedTotal / totalItems) * 100);
+  var s = '【NPO 자가진단 결과 요약】\n종합: '+checkedTotal+'/30점 ('+pct+'%)\n영역별:\n';
+  for (var i = 0; i < 6; i++) {
+    var bp = Math.round((checkCounts[i]/checkTotals[i])*100);
+    s += '  '+catIcons[i]+' '+catNames[i]+': '+checkCounts[i]+'/'+checkTotals[i]+' ('+bp+'%)\n';
+  }
+  s += '\n생성: NPO AI 활용 표준안 v1.0 셀프 컨설팅';
+  navigator.clipboard.writeText(s).then(function() {
+    var btn = event.currentTarget;
+    btn.textContent = '✅ 복사 완료!';
+    setTimeout(function() { btn.textContent = '📋 결과 요약 복사'; }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
